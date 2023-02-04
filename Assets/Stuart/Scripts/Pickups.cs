@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace Stuart
+{
 public enum Resource
 {
     Water,
     Nutrients
 }
 
-namespace Stuart
-{
+
     public class Pickups : MonoBehaviour
     {
         [SerializeField] private Resource resource;
