@@ -3,10 +3,150 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2f46ff-0c72-4558-a0e4-ff47d8fc0917" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat3.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat4.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat4.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat5.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat5.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat6.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat6.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat7.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat7.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat8.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Materials/BasicMat8.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/BlenderMonkey.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/BlenderMonkey.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/CrossHair.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/CrossHair.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/HillAndVert 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/HillAndVert 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/Room1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/Room1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/ZigZags.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/ZigZags.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/rim01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/rim01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/unitArrow01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Models/unitArrow01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Ball.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Ball.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/BasketPrefab.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/BasketPrefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/BlenderMonkey.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/BlenderMonkey.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/CameraRig.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/CameraRig.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/CrossHair.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/CrossHair.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/HillAndVert 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/HillAndVert 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Player2D.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Player2D.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Room1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/Room1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/ZigZags.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/ZigZags.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/bball.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/bball.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/player2d.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/player2d.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/unitArrow01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Prefabs/unitArrow01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Scenes/SlowScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Scenes/SlowScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Scenes/SpeedScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Scenes/SpeedScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Sprites/simpleCharacter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/DemoAssets/Sprites/simpleCharacter.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Documentation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Documentation/documentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Documentation/documentation.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Documentation/script reference.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Documentation/script reference.zip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/DCEditorHandleDrawFunctions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/DCEditorHandleDrawFunctions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/DCEffectorManagerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/DCEffectorManagerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/Eveld.DynamicCamera.Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Editor/Eveld.DynamicCamera.Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/BallController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/BallController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/CameraShakeUsage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/CameraShakeUsage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/MovingPlatform.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/MovingPlatform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/PlayerSpriteController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/PlayerSpriteController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/SceneSwitcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/SceneSwitcher.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/SetCrossHair.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/SetCrossHair.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/TargetFrameRate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DemoScripts/TargetFrameRate.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DCCameraShake.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DCCameraShake.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraControllerMinimal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraControllerMinimal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCBoxEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCBoxEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCCircleEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCCircleEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffectorBoundaryRegion.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffectorBoundaryRegion.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffectorManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCEffectorManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCInterpSemiTorusEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCInterpSemiTorusEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCMultiEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCMultiEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCPropertiesContainer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCPropertiesContainer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCSemiCircleEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCSemiCircleEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCSemiTorusEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCSemiTorusEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCTorusEffector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraEffector/DCTorusEffector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraFunctions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraFunctions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraTracker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/DynamicCameraTracker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/MassSpringDamperFunctions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/MassSpringDamperFunctions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/MassSpringDamperTracker1D.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/DynamicCamera/MassSpringDamperTracker1D.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/Eveld.DynamicCamera.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/Scripts/Eveld.DynamicCamera.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EveldTech/DynamicCamera/readme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/BuildScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/BuildScene 1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +235,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675449586201</updated>
       <workItem from="1675449590000" duration="3152000" />
-      <workItem from="1675498577123" duration="14565000" />
+      <workItem from="1675498577123" duration="16475000" />
     </task>
     <servers />
   </component>

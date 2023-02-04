@@ -16,7 +16,13 @@ namespace Stuart
         [SerializeField] private Resource resource;
         [SerializeField] private float amount;
         [SerializeField] private float destroyDelay = 0.5f;
+        [SerializeField] private ParticleSystem particleSystem;
         private bool pickedUp;
+        private Renderer sprite;
+        private void Awake()
+        {
+            sprite = GetComponent<Renderer>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -35,7 +41,8 @@ namespace Stuart
 
         private IEnumerator PickUpCor()
         {
-            //play effects or whatever
+            sprite.enabled = false;
+            if(particleSystem!=null) particleSystem.Play();
             yield return new WaitForSeconds(destroyDelay);
             Destroy(gameObject);
         }
