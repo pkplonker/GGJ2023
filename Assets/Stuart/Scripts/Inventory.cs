@@ -12,10 +12,14 @@ namespace Stuart
         public void Add(Resource type, float amount)
         {
             if (resources.ContainsKey(type))
+<<<<<<< Updated upstream
             {
                 resources[type] += amount;
                 return;
             }
+=======
+                resources[type] += amount;
+>>>>>>> Stashed changes
             resources.Add(type, amount);
         }
 

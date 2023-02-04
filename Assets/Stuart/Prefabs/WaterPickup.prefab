@@ -11,10 +11,16 @@ GameObject:
   - component: {fileID: 4747241508664829490}
   - component: {fileID: 4747241508664829489}
   - component: {fileID: 4747241508664829491}
+<<<<<<< Updated upstream
   - component: {fileID: 1794503493}
   m_Layer: 0
   m_Name: WaterPickup
   m_TagString: Pickup
+=======
+  m_Layer: 0
+  m_Name: WaterPickup
+  m_TagString: Untagged
+>>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +36,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
+<<<<<<< Updated upstream
   m_Children:
   - {fileID: 7561561552275437032}
+=======
+  m_Children: []
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +112,7 @@ MonoBehaviour:
   resource: 0
   amount: 20
   destroyDelay: 0.5
+<<<<<<< Updated upstream
   particleSystem: {fileID: 0}
 --- !u!135 &1794503493
 SphereCollider:
@@ -179,3 +190,5 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7561561552275895822}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
