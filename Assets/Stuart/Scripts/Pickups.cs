@@ -33,8 +33,6 @@ namespace Stuart
             {
                 Destroy(gameObject);
             }
-
-            
             invent.Add(resource, amount);
             PickedUp();
         }

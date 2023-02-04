@@ -102,7 +102,7 @@ MonoBehaviour:
   resource: 0
   amount: 20
   destroyDelay: 0.5
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 6786608129185493809}
 --- !u!135 &1794503493
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +176,12 @@ PrefabInstance:
 --- !u!4 &6786608129167092213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00,
+    type: 3}
+  m_PrefabInstance: {fileID: 6786608129167550995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6786608129185493809 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19814690, guid: 30662cb696c919a4c837de0a68136e00,
     type: 3}
   m_PrefabInstance: {fileID: 6786608129167550995}
   m_PrefabAsset: {fileID: 0}
