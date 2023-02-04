@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2f46ff-0c72-4558-a0e4-ff47d8fc0917" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675449586201</updated>
       <workItem from="1675449590000" duration="3152000" />
-      <workItem from="1675498577123" duration="1327000" />
+      <workItem from="1675498577123" duration="3052000" />
     </task>
     <servers />
   </component>
