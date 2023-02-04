@@ -12,9 +12,6 @@ public class controls : MonoBehaviour
 
     [SerializeField] private float pointDistance;
 
-    private Vector3 position1;
-    private Vector3 position2;
-
     [SerializeField] private AnimationCurve curve;
 
     private Rigidbody rb1;
@@ -29,6 +26,9 @@ public class controls : MonoBehaviour
     private Vector3 velocity1;
     private Vector3 velocity2;
 
+    private Vector3 position1;
+    private Vector3 position2;
+
     private float hor1 = 0;
     private float hor2 = 0;
     private float ver1 = 0;
@@ -37,6 +37,12 @@ public class controls : MonoBehaviour
     private double startTime;
 
     private bool start = false;
+
+    private bool power1 = false;
+    private bool power2 = false;
+
+    private int i1;
+    private int i2;
 
     private void OnEnable()
     {
@@ -65,44 +71,138 @@ public class controls : MonoBehaviour
         curve.AddKey(0.0f, 0.1f);
         curve.AddKey(1.0f, 0.05f);
 
+        Player1.transform.position = new Vector3(Player1.transform.position.x, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         lr1 = transform.GetChild(0).GetComponent<LineRenderer>();
-        Player1.transform.position = new Vector3(-3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
-        lr1.widthCurve = curve;
-        lr1.positionCount = 1;
-        lr1.SetPosition(0, Player1.transform.position);
-        position1 = Player1.transform.position;
+        lrSetup(lr1, Player1, position1);
 
+        Player2.transform.position = new Vector3(Player2.transform.position.x, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         lr2 = transform.GetChild(1).GetComponent<LineRenderer>();
-        Player2.transform.position = new Vector3(3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
-        lr2.widthCurve = curve;
-        lr2.positionCount = 1;
-        lr2.SetPosition(0, Player2.transform.position);
-        position2 = Player2.transform.position;
+        lrSetup(lr2, Player2, position2);
 
         start = true;
     }
 
+    private void lrSetup(LineRenderer lr, GameObject player, Vector3 position)
+    {
+        lr.widthCurve = curve;
+        lr.positionCount = 1;
+        lr.SetPosition(0, player.transform.position);
+        position = player.transform.position;
+    }
+
     void Update()
     {
-        GetControls();
-
-        curve.MoveKey(0, new Keyframe(0, Mathf.Lerp(curve[0].value, 0.3f, Time.deltaTime/100)));
-        lr1.widthCurve = curve;
-        lr2.widthCurve = curve;
+        GetControls1();
+        GetControls2();
     }
 
     private void FixedUpdate()
     {
+        curve.MoveKey(0, new Keyframe(0, Mathf.Lerp(curve[0].value, 0.3f, Time.deltaTime / 100)));
+        lr1.widthCurve = curve;
+        lr2.widthCurve = curve;
+
         if (start)
         {
-            VelocityLine();
+            if (!power1)
+            {
+                VelocityLine1();
+                BakeLineMesh1();
+            }
+            else
+            {
+                traverseLine1();
+            }
 
-            BakeLineMesh();
+            if (!power2)
+            {
+                VelocityLine2();
+                BakeLineMesh2();
+            }
+            else
+            {
+                traverseLine2();
+            }
         }
     }
 
-    private void GetControls()
+    private void traverseLine1()
     {
+        if (ver1 == 1)
+        {
+            Player1.transform.position = Vector3.MoveTowards(Player1.transform.position, lr1.GetPosition(i1), baseSpeed * 3 * Time.deltaTime);
+            if (Player1.transform.position == lr1.GetPosition(i1))
+            {
+                if (i1 > 0)
+                {
+                    i1--;
+                }
+            }
+        }
+        if (ver1 == -1)
+        {
+            Player1.transform.position = Vector3.MoveTowards(Player1.transform.position, lr1.GetPosition(i1 + 1), baseSpeed * 3 * Time.deltaTime);
+            if (Player1.transform.position == lr1.GetPosition(i1 + 1))
+            {
+                if (i1 < lr1.positionCount - 2)
+                {
+                    i1++;
+                }
+            }
+        }
+    }
+
+    private void traverseLine2()
+    {
+        if (ver2 == 1)
+        {
+            Player2.transform.position = Vector3.MoveTowards(Player2.transform.position, lr2.GetPosition(i2), baseSpeed * Time.deltaTime);
+            if (Player2.transform.position == lr2.GetPosition(i2))
+            {
+                if (i2 > 0)
+                {
+                    i2--;
+                }
+            }
+        }
+        if (ver2 == -1)
+        {
+            Player2.transform.position = Vector3.MoveTowards(Player2.transform.position, lr2.GetPosition(i2 + 1), baseSpeed * Time.deltaTime);
+            if (Player2.transform.position == lr2.GetPosition(i2 + 1))
+            {
+                if (i2 < lr2.positionCount - 2)
+                {
+                    i2++;
+                }
+            }
+        }
+    }
+
+    private void GetControls1()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!power1)
+            {
+                power1 = true;
+                lr1.positionCount += 3;
+                lr1.SetPosition(lr1.positionCount - 3, Player1.transform.position);
+                lr1.SetPosition(lr1.positionCount - 2, Player1.transform.position);
+                lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
+                rb1.isKinematic = true;
+                i1 = lr1.positionCount - 1;
+            }
+            else if (power1)
+            {
+                GameObject go = Instantiate(lr1.gameObject, transform);
+                lr1 = go.GetComponent<LineRenderer>();
+                mc1 = go.GetComponent<MeshCollider>();
+                lr1.positionCount = i1 + 1;
+                Player1.transform.position = new Vector3(Player1.transform.position.x, Player1.transform.position.y - 0.1f, Player1.transform.position.z);
+                power1 = false;
+                rb1.isKinematic = false;
+            }
+        }
         if (Input.GetKey("a"))
         {
             hor1 = -1;
@@ -127,7 +227,33 @@ public class controls : MonoBehaviour
         {
             ver1 = 0;
         }
+    }
 
+    private void GetControls2()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            if (!power2)
+            {
+                power2 = true;
+                lr2.positionCount += 3;
+                lr2.SetPosition(lr2.positionCount - 3, Player2.transform.position);
+                lr2.SetPosition(lr2.positionCount - 2, Player2.transform.position);
+                lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
+                rb2.isKinematic = true;
+                i2 = lr2.positionCount - 1;
+            }
+            else if (power2)
+            {
+                GameObject go = Instantiate(lr2.gameObject, transform);
+                lr2 = go.GetComponent<LineRenderer>();
+                mc2 = go.GetComponent<MeshCollider>();
+                lr2.positionCount = i2 + 1;
+                Player2.transform.position = new Vector3(Player2.transform.position.x, Player2.transform.position.y - 0.1f, Player2.transform.position.z);
+                power2 = false;
+                rb2.isKinematic = false;
+            }
+        }
         if (Input.GetKey("left"))
         {
             hor2 = -1;
@@ -154,25 +280,27 @@ public class controls : MonoBehaviour
         }
     }
 
-    private void VelocityLine()
+    private void VelocityLine1()
     {
         velocity1 = Vector3.Normalize(new Vector3(hor1, ver1, 0)) * baseSpeed;
-        velocity2 = Vector3.Normalize(new Vector3(hor2, ver2, 0)) * baseSpeed;
 
-        if(Vector3.Distance(position1, Player1.transform.position) > pointDistance)
+        if (Vector3.Distance(position1, Player1.transform.position) > pointDistance)
         {
             lr1.positionCount += 1;
-            lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
             position1 = Player1.transform.position;
         }
 
         rb1.velocity = velocity1;
         lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
+    }
+
+    private void VelocityLine2()
+    {
+        velocity2 = Vector3.Normalize(new Vector3(hor2, ver2, 0)) * baseSpeed;
 
         if (Vector3.Distance(position2, Player2.transform.position) > pointDistance)
         {
             lr2.positionCount += 1;
-            lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
             position2 = Player2.transform.position;
         }
 
@@ -180,9 +308,9 @@ public class controls : MonoBehaviour
         lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
     }
 
-    private void BakeLineMesh()
+    private void BakeLineMesh1()
     {
-        if (lr1.positionCount > 2)
+        if (lr1.positionCount > 4)
         {
             Mesh mesh1 = new Mesh();
             mesh1.name = "mesh1";
@@ -195,8 +323,11 @@ public class controls : MonoBehaviour
             lr1.SetPosition(lr1.positionCount - 2, temp2);
             mc1.sharedMesh = mesh1;
         }
+    }
 
-        if(lr2.positionCount > 2)
+    private void BakeLineMesh2()
+    {
+        if (lr2.positionCount > 4)
         {
             Mesh mesh2 = new Mesh();
             mesh2.name = "mesh2";
