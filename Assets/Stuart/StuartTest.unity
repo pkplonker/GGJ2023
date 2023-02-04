@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <sizeScale>k__BackingField: {x: 1, y: 1}
   camera: {fileID: 0}
-  startOrientation: {x: -90, y: 0, z: 0}
+  startOrientation: {x: 90, y: -90, z: 90}
   dirtMaterial: {fileID: 2100000, guid: cd9af01cb1076ea4f962f0f6f71ae52c, type: 2}
   frameMaterial: {fileID: 2100000, guid: 103b49cbca0c1f44c872c827332ffc7e, type: 2}
   backgroundMaterial: {fileID: 2100000, guid: cb2addac96d00d64eb0cc4f11244666b, type: 2}
