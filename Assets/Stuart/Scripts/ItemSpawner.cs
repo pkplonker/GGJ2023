@@ -43,7 +43,7 @@ namespace Stuart
                     var go = Instantiate(prefab.pickup.gameObject,
                         transform);
                     go.transform.position = RandomPointInBounds(bounds, scale * 0.95f);
-                    if (IsPositionGood(go, rayDirection) && IsPositionGood(go, -rayDirection) && NoOverlap(go))
+                    if (IsPositionGood(go, rayDirection) && IsPositionGood(go, -rayDirection))
                     {
                         spawnedItems.Add(go.GetComponent<Pickups>());
                         spawned++;
@@ -51,23 +51,29 @@ namespace Stuart
                     else Destroy(go);
                 }
             }
+
+            yield return new WaitForFixedUpdate();
+            for (var i = spawnedItems.Count - 1; i >= 0; i--)
+            {
+                if (OverLaps(spawnedItems[i].gameObject))
+                {
+                    Destroy(spawnedItems[i].gameObject);
+                }
+            }
         }
 
-        private bool NoOverlap(GameObject go)
-        {
-            var hits = Physics.SphereCastAll(go.transform.position + (Vector3.forward / 2), 0.4f, -Vector3.forward, 1f);
-            Debug.DrawRay(go.transform.position + (Vector3.forward / 2), -Vector3.forward, Color.red, 10f);
-            if (hits.Length > 0)
-            {
-                Debug.Log("test");
-            }
 
+        private bool OverLaps(GameObject go)
+        {
+            var hits = Physics.SphereCastAll(go.transform.position + (Vector3.forward / 2), 0.15f, -Vector3.forward,
+                1f);
+            //Debug.DrawRay(go.transform.position + (Vector3.forward / 2), -Vector3.forward, Color.red, 10f);
             foreach (var hit in hits)
             {
-                if (hit.collider.CompareTag("Pickup")) return false;
+                if (hit.collider.CompareTag("Pickup") && hit.collider != go.GetComponent<Collider>()) return true;
             }
 
-            return true;
+            return false;
         }
 
         private static bool IsPositionGood(GameObject go, Vector3 direction)
