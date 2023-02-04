@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -258,15 +258,15 @@ MonoBehaviour:
   player2: {fileID: 875566087}
   baseSpeed: 1
   pointDistance: 0.1
+  lm:
+    serializedVersion: 2
+    m_Bits: 0
   curve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  lm:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &264263681
 Transform:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 3799422994738211190, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3799422994738211190, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
@@ -1048,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908129083}
-  - component: {fileID: 908129082}
+  - component: {fileID: 908129084}
   m_Layer: 0
   m_Name: cameraControler
   m_TagString: Untagged
@@ -1056,22 +1056,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &908129082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908129081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5707595efc02194b9ab285a9161b7f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera1: {fileID: 1759758436}
-  camera2: {fileID: 797497505}
-  Player1: {fileID: 845024504}
-  Player2: {fileID: 875566087}
 --- !u!4 &908129083
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,6 +1071,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908129084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908129081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5707595efc02194b9ab285a9161b7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera1: {fileID: 1759758436}
+  camera2: {fileID: 797497505}
+  player1: {fileID: 845024504}
+  player2: {fileID: 875566087}
 --- !u!1001 &1001236493
 PrefabInstance:
   m_ObjectHideFlags: 0
