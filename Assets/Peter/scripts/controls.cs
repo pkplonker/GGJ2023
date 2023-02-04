@@ -169,18 +169,18 @@ public class controls : MonoBehaviour
                 lr2 = go.GetComponent<LineRenderer>();
                 mc2 = go.GetComponent<MeshCollider>();
                 lr2.positionCount = i2 + 2;
-                lr2.SetPosition(i1 + 1, player2.transform.position);
+                lr2.SetPosition(i2 + 1, player2.transform.position);
             }
         }
         if (Input.GetKey("left"))
         {
             hor2 = -1;
-            lasthor1 = -1;
+            lasthor2 = -1;
         }
         else if (Input.GetKey("right"))
         {
             hor2 = 1;
-            lasthor1 = 1;
+            lasthor2 = 1;
         }
         else
         {
