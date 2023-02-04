@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 namespace Stuart
 {
 public enum Resource
@@ -17,7 +19,7 @@ public enum Resource
         [SerializeField] private Resource resource;
         [SerializeField] private float amount;
         [SerializeField] private float destroyDelay = 0.5f;
-        [SerializeField] private ParticleSystem particleSystem;
+        [FormerlySerializedAs("particleSystem")] [SerializeField] private ParticleSystem particle;
         private bool pickedUp;
         private Renderer sprite;
         private void Awake()
@@ -49,7 +51,7 @@ public enum Resource
         private IEnumerator PickUpCor()
         {
             sprite.enabled = false;
-            if(particleSystem!=null) particleSystem.Play();
+            if(particle!=null) particle.Play();
             yield return new WaitForSeconds(destroyDelay);
             Destroy(gameObject);
         }
