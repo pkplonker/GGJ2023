@@ -24,10 +24,15 @@ namespace Stuart
             sprite = GetComponent<Renderer>();
         }
 
+     
+
         private void OnTriggerEnter(Collider other)
         {
             var invent = other.GetComponent<Inventory>();
-            if (!invent) return;
+            if (!invent)
+            {
+                DestroyImmediate(gameObject);
+            };
             invent.Add(resource, amount);
             PickedUp();
         }

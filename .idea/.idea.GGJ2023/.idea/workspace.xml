@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd2f46ff-0c72-4558-a0e4-ff47d8fc0917" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Stuart/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Peter/scripts/cameraControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Peter/scripts/cameraControler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Peter/scripts/controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Peter/scripts/controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Prefabs/NutPickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Prefabs/NutPickup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +26,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/MapGeneratorEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/ItemSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -71,10 +82,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19664">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22568">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19664" />
+      <option name="pid" value="22568" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -91,7 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1675449586201</updated>
       <workItem from="1675449590000" duration="3152000" />
-      <workItem from="1675498577123" duration="16890000" />
+      <workItem from="1675498577123" duration="18755000" />
+      <workItem from="1675522346136" duration="2836000" />
     </task>
     <servers />
   </component>

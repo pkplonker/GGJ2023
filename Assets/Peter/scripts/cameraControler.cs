@@ -29,7 +29,7 @@ public class cameraControler : MonoBehaviour
         MapGenerator.OnMapGenerated -= bounds;
     }
 
-    private void bounds(GameObject _background)
+    private void bounds(GameObject _background,float val)
     {
         background = _background;
         max = background.GetComponent<MeshRenderer>().bounds.max.y;

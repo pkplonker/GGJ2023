@@ -59,7 +59,7 @@ public class controls : MonoBehaviour
         startTime = Time.time;
     }
 
-    private void playerStart(GameObject background)
+    private void playerStart(GameObject background,float val)
     {
         curve = new AnimationCurve();
         curve.AddKey(0.0f, 0.1f);

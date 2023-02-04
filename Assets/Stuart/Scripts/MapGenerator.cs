@@ -20,7 +20,7 @@ namespace Stuart
         private GameObject topCollider;
         private GameObject bottomLeftCollider;
         private GameObject bottomRightCollider;
-        public static event Action<GameObject> OnMapGenerated;
+        public static event Action<GameObject, float> OnMapGenerated;
 
         private GameObject frame;
         private GameObject background;
@@ -30,8 +30,10 @@ namespace Stuart
         {
             if (camera == null) camera = Camera.main;
             defaultCameraSize = camera.orthographicSize;
-            GenerateMap();
+            
         }
+
+        private void Start()=>GenerateMap();
 
 
         public void GenerateMap()
@@ -39,7 +41,7 @@ namespace Stuart
             GenerateDirt();
             GenerateFrame();
             GenerateColliders();
-            OnMapGenerated?.Invoke(plane);
+            OnMapGenerated?.Invoke(plane,sizeScale);
         }
         private void GenerateColliders()
         {
@@ -52,12 +54,16 @@ namespace Stuart
             if (bottomRightCollider != null) Destroy(bottomRightCollider);
             if (bottomLeftCollider != null) Destroy(bottomLeftCollider);
 
+            var layer = 6;
             leftCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             leftCollider.transform.localScale = new Vector3(1, size * sizeScale, 1);
             leftCollider.transform.eulerAngles = new Vector3(0, 0, rotation / sizeScale);
             leftCollider.transform.position = new Vector3(-posOffset, 0, 0);
             if(!enabledSolidColliders)leftCollider.GetComponent<MeshRenderer>().enabled = false;
             leftCollider.transform.parent = transform;
+            leftCollider.name = "leftCollider";
+            leftCollider.layer = layer;
+            leftCollider.layer = LayerMask.NameToLayer("Bounds");;
 
             rightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             rightCollider.transform.localScale = new Vector3(1, size * sizeScale, 1);
@@ -65,24 +71,35 @@ namespace Stuart
             rightCollider.transform.position = new Vector3(posOffset, 0, 0);
             if(!enabledSolidColliders)rightCollider.GetComponent<MeshRenderer>().enabled = false;
             rightCollider.transform.parent = transform;
+            rightCollider.name = "rightCollider";
+            rightCollider.layer = layer;
+            rightCollider.layer = LayerMask.NameToLayer("Bounds");;
 
             topCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             topCollider.transform.localScale = new Vector3(10, 1, 1);
             topCollider.transform.position = new Vector3(0, 4.9f * sizeScale, 0);
             if(!enabledSolidColliders) topCollider.GetComponent<MeshRenderer>().enabled = false;
             topCollider.transform.parent = transform;
-
+            topCollider.name = "topCollider";
+            topCollider.layer = LayerMask.NameToLayer("Bounds");;
+            
             bottomLeftCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             bottomLeftCollider.transform.localScale = new Vector3(5, 1 * sizeScale, 1);
             bottomLeftCollider.transform.position = new Vector3(-2.86f, bottomVerticalOffset * sizeScale, 0);
             if(!enabledSolidColliders) bottomLeftCollider.GetComponent<MeshRenderer>().enabled = false;
             bottomLeftCollider.transform.parent = transform;
+            bottomLeftCollider.name = "bottomLeftCollider";
+            bottomLeftCollider.layer = LayerMask.NameToLayer("Bounds");;
 
+            
             bottomRightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             bottomRightCollider.transform.localScale = new Vector3(5, 1 * sizeScale, 1);
             bottomRightCollider.transform.position = new Vector3(2.53f, bottomVerticalOffset * sizeScale, 0);
             if(!enabledSolidColliders) bottomRightCollider.GetComponent<MeshRenderer>().enabled = false;
             bottomRightCollider.transform.parent = transform;
+            bottomRightCollider.name = "bottomRightCollider";
+            bottomRightCollider.layer = LayerMask.NameToLayer("Bounds");;
+
         }
 
 

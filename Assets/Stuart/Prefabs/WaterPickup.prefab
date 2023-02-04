@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1794503493}
   m_Layer: 0
   m_Name: WaterPickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1255953925}
+  - {fileID: 7561561552275437032}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   resource: 0
   amount: 20
   destroyDelay: 0.5
-  particleSystem: {fileID: 1274350785}
+  particleSystem: {fileID: 0}
 --- !u!135 &1794503493
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1255888355
+--- !u!1001 &7561561552275895822
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -125,23 +125,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100748, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
       propertyPath: m_Name
-      value: FireWork
+      value: WaterVFX
       objectReference: {fileID: 0}
     - target: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,21 +171,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 19814690, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
---- !u!4 &1255953925 stripped
+--- !u!4 &7561561552275437032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00,
     type: 3}
-  m_PrefabInstance: {fileID: 1255888355}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1274350785 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19814690, guid: 30662cb696c919a4c837de0a68136e00,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255888355}
+  m_PrefabInstance: {fileID: 7561561552275895822}
   m_PrefabAsset: {fileID: 0}
