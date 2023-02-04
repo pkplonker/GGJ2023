@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
-    public void NewGame(bool playsound = true)
+    public void OpenNewGame(bool playsound = true)
     {
         if(playsound) PlaySound();
         mainMenuPanel.SetActive(false);
