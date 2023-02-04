@@ -40,11 +40,9 @@ namespace Stuart
         {
             GenerateDirt();
             GenerateFrame();
-            GenerateColliders();
-<<<<<<< Updated upstream
+            GenerateColliders(); 
             OnMapGenerated?.Invoke(plane,sizeScale);
-=======
-            OnMapGenerated?.Invoke(plane);
+
         }
 
         private void Update()
@@ -52,7 +50,6 @@ namespace Stuart
             if (Input.GetKeyDown(KeyCode.R))
                 GenerateMap();
 
->>>>>>> Stashed changes
         }
         private void GenerateColliders()
         {
