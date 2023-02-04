@@ -13,6 +13,7 @@ namespace Stuart
         [SerializeField] private Material dirtMaterial;
         [SerializeField] private Material frameMaterial;
         [SerializeField] private Material backgroundMaterial;
+        [SerializeField] float bottomVerticalOffset = -5.38f;
 
         private GameObject leftCollider;
         private GameObject rightCollider;
@@ -24,7 +25,7 @@ namespace Stuart
         private GameObject frame;
         private GameObject background;
         private float defaultCameraSize;
-
+        public bool enabledSolidColliders = false;
         private void Awake()
         {
             if (camera == null) camera = Camera.main;
@@ -33,11 +34,10 @@ namespace Stuart
         }
 
 
-        private void GenerateMap()
+        public void GenerateMap()
         {
             GenerateDirt();
             GenerateFrame();
-            //SetCameraStartPosition();
             GenerateColliders();
             OnMapGenerated?.Invoke(plane);
         }
@@ -46,6 +46,7 @@ namespace Stuart
         {
             if (Input.GetKeyDown(KeyCode.R))
                 GenerateMap();
+
         }
 
         private void GenerateColliders()
@@ -63,43 +64,41 @@ namespace Stuart
             leftCollider.transform.localScale = new Vector3(1, size * sizeScale, 1);
             leftCollider.transform.eulerAngles = new Vector3(0, 0, rotation / sizeScale);
             leftCollider.transform.position = new Vector3(-posOffset, 0, 0);
-            leftCollider.GetComponent<MeshRenderer>().enabled = false;
+            if(!enabledSolidColliders)leftCollider.GetComponent<MeshRenderer>().enabled = false;
             leftCollider.transform.parent = transform;
 
             rightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             rightCollider.transform.localScale = new Vector3(1, size * sizeScale, 1);
             rightCollider.transform.eulerAngles = new Vector3(0, 0, -rotation / sizeScale);
             rightCollider.transform.position = new Vector3(posOffset, 0, 0);
-            rightCollider.GetComponent<MeshRenderer>().enabled = false;
+            if(!enabledSolidColliders)rightCollider.GetComponent<MeshRenderer>().enabled = false;
             rightCollider.transform.parent = transform;
 
             topCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             topCollider.transform.localScale = new Vector3(10, 1, 1);
             topCollider.transform.position = new Vector3(0, 4.9f * sizeScale, 0);
-            topCollider.GetComponent<MeshRenderer>().enabled = false;
+            if(!enabledSolidColliders) topCollider.GetComponent<MeshRenderer>().enabled = false;
             topCollider.transform.parent = transform;
 
             bottomLeftCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            bottomLeftCollider.transform.localScale = new Vector3(5, 1, 1);
-            bottomLeftCollider.transform.position = new Vector3(-2.86f, -4.9f * sizeScale, 0);
-            bottomLeftCollider.GetComponent<MeshRenderer>().enabled = false;
+            bottomLeftCollider.transform.localScale = new Vector3(5, 1 * sizeScale, 1);
+            bottomLeftCollider.transform.position = new Vector3(-2.86f, bottomVerticalOffset * sizeScale, 0);
+            if(!enabledSolidColliders) bottomLeftCollider.GetComponent<MeshRenderer>().enabled = false;
             bottomLeftCollider.transform.parent = transform;
 
             bottomRightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            bottomRightCollider.transform.localScale = new Vector3(5, 1, 1);
-            bottomRightCollider.transform.position = new Vector3(2.53f, -4.9f * sizeScale, 0);
-            bottomRightCollider.GetComponent<MeshRenderer>().enabled = false;
+            bottomRightCollider.transform.localScale = new Vector3(5, 1 * sizeScale, 1);
+            bottomRightCollider.transform.position = new Vector3(2.53f, bottomVerticalOffset * sizeScale, 0);
+            if(!enabledSolidColliders) bottomRightCollider.GetComponent<MeshRenderer>().enabled = false;
             bottomRightCollider.transform.parent = transform;
         }
 
-        private void SetCameraStartPosition() => camera.orthographicSize = defaultCameraSize * sizeScale;
 
         private void GenerateFrame()
         {
             if (frame != null) Destroy(frame);
             frame = GeneratePlane(frameMaterial, 1);
             frame.transform.parent = transform;
-
             if (background != null) Destroy(background);
             background = GeneratePlane(backgroundMaterial, 1);
             background.transform.parent = transform;
@@ -113,7 +112,7 @@ namespace Stuart
             var mr = go.GetComponent<MeshRenderer>();
             mr.material = material;
             if (scale)
-                material.mainTextureScale = new Vector2(defaultScale * sizeScale, defaultScale * sizeScale);
+                material.mainTextureScale = new Vector2(defaultScale, defaultScale * sizeScale);
             return go;
         }
 
