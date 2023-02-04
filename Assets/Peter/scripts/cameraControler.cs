@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Stuart;
 
-public class cameraControler : MonoBehaviour
+public class CameraControler : MonoBehaviour
 {
     [SerializeField] private Camera camera1;
     [SerializeField] private Camera camera2;
 
-    [SerializeField] private GameObject Player1;
-    [SerializeField] private GameObject Player2;
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
 
     private GameObject background;
 
@@ -21,15 +21,15 @@ public class cameraControler : MonoBehaviour
 
     private void OnEnable()
     {
-        MapGenerator.OnMapGenerated += bounds;
+        MapGenerator.OnMapGenerated += SetBounds;
     }
 
     private void OnDisable()
     {
-        MapGenerator.OnMapGenerated -= bounds;
+        MapGenerator.OnMapGenerated -= SetBounds;
     }
 
-    private void bounds(GameObject _background,float val)
+    private void SetBounds(GameObject _background,float val)
     {
         background = _background;
         max = background.GetComponent<MeshRenderer>().bounds.max.y;
@@ -39,18 +39,18 @@ public class cameraControler : MonoBehaviour
 
     void Update()
     {
-        if (Player1.transform.position.y < Player2.transform.position.y)
+        if (player1.transform.position.y < player2.transform.position.y)
         {
-            target1 = Player1.transform.position.y;
-            target2 = Player2.transform.position.y;
+            target1 = player1.transform.position.y;
+            target2 = player2.transform.position.y;
         }
         else
         {
-            target2 = Player1.transform.position.y;
-            target1 = Player2.transform.position.y;
+            target2 = player1.transform.position.y;
+            target1 = player2.transform.position.y;
         }
 
-        if (Mathf.Abs(Player1.transform.position.y - Player2.transform.position.y) < camera1.orthographicSize*2)
+        if (Mathf.Abs(player1.transform.position.y - player2.transform.position.y) < camera1.orthographicSize*2)
         {
             float mid = (target1 + target2) / 2;
             target1 = mid - camera1.orthographicSize;
