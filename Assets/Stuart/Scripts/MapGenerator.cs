@@ -18,7 +18,7 @@ namespace Stuart
         private GameObject topCollider;
         private GameObject bottomLeftCollider;
         private GameObject bottomRightCollider;
-
+        public static event Action<GameObject> OnMapGenerated;
 
         private GameObject frame;
         private GameObject background;
@@ -38,6 +38,7 @@ namespace Stuart
             GenerateFrame();
             SetCameraStartPosition();
             GenerateColliders();
+            OnMapGenerated?.Invoke(plane);
         }
 
         private void GenerateColliders()
