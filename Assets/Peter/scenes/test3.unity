@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264263681}
-  - component: {fileID: 264263680}
+  - component: {fileID: 264263682}
   m_Layer: 0
   m_Name: playerControler
   m_TagString: Untagged
@@ -242,31 +242,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &264263680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264263679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46dd2eaa97f05574e848eaf2894ea7f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 845024504}
-  player2: {fileID: 875566087}
-  baseSpeed: 1
-  pointDistance: 0.1
-  curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  lm:
-    serializedVersion: 2
-    m_Bits: 192
 --- !u!4 &264263681
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +259,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264263682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264263679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dd2eaa97f05574e848eaf2894ea7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 845024504}
+  player2: {fileID: 875566087}
+  baseSpeed: 1
+  pointDistance: 0.1
+  lm:
+    serializedVersion: 2
+    m_Bits: 192
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &465033300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908129083}
-  - component: {fileID: 908129082}
+  - component: {fileID: 908129084}
   m_Layer: 0
   m_Name: cameraControler
   m_TagString: Untagged
@@ -1056,22 +1056,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &908129082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908129081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5707595efc02194b9ab285a9161b7f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera1: {fileID: 1759758436}
-  camera2: {fileID: 797497505}
-  player1: {fileID: 845024504}
-  player2: {fileID: 875566087}
 --- !u!4 &908129083
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,6 +1071,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908129084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908129081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5707595efc02194b9ab285a9161b7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera1: {fileID: 1759758436}
+  camera2: {fileID: 797497505}
+  player1: {fileID: 845024504}
+  player2: {fileID: 875566087}
 --- !u!1001 &1001236493
 PrefabInstance:
   m_ObjectHideFlags: 0
