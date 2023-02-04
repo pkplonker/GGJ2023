@@ -15,8 +15,7 @@ public class controls : MonoBehaviour
     private Vector3 position1;
     private Vector3 position2;
 
-    private AnimationCurve curve1;
-    private AnimationCurve curve2;
+    [SerializeField] private AnimationCurve curve;
 
     private Rigidbody rb1;
     private Rigidbody rb2;
@@ -34,6 +33,8 @@ public class controls : MonoBehaviour
     private float hor2 = 0;
     private float ver1 = 0;
     private float ver2 = 0;
+
+    private double startTime;
 
     private bool start = false;
 
@@ -54,22 +55,26 @@ public class controls : MonoBehaviour
         
         mc1 = transform.GetChild(0).GetComponent<MeshCollider>();
         mc2 = transform.GetChild(1).GetComponent<MeshCollider>();
+
+        startTime = Time.time;
     }
 
     private void playerStart(GameObject background)
     {
+        curve = new AnimationCurve();
+        curve.AddKey(0.0f, 0.1f);
+        curve.AddKey(1.0f, 0.05f);
+
         lr1 = transform.GetChild(0).GetComponent<LineRenderer>();
         Player1.transform.position = new Vector3(-3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
-        lr1.startWidth = 0.1f;
-        lr1.endWidth = 0.05f;
+        lr1.widthCurve = curve;
         lr1.positionCount = 1;
         lr1.SetPosition(0, Player1.transform.position);
         position1 = Player1.transform.position;
 
         lr2 = transform.GetChild(1).GetComponent<LineRenderer>();
         Player2.transform.position = new Vector3(3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
-        lr2.startWidth = 0.1f;
-        lr2.endWidth = 0.05f;
+        lr2.widthCurve = curve;
         lr2.positionCount = 1;
         lr2.SetPosition(0, Player2.transform.position);
         position2 = Player2.transform.position;
@@ -80,6 +85,10 @@ public class controls : MonoBehaviour
     void Update()
     {
         GetControls();
+
+        curve.MoveKey(0, new Keyframe(0, Mathf.Lerp(curve[0].value, 0.3f, Time.deltaTime/100)));
+        lr1.widthCurve = curve;
+        lr2.widthCurve = curve;
     }
 
     private void FixedUpdate()
