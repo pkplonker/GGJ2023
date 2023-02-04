@@ -28,9 +28,9 @@ namespace Stuart
         {
             if (camera == null) camera = Camera.main;
             defaultCameraSize = camera.orthographicSize;
+            GenerateMap();
         }
 
-        void Start() => GenerateMap();
 
         private void GenerateMap()
         {
