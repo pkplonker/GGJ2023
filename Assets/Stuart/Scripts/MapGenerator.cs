@@ -14,12 +14,15 @@ namespace Stuart
         [SerializeField] private Material frameMaterial;
         [SerializeField] private Material backgroundMaterial;
         [SerializeField] float bottomVerticalOffset = -5.38f;
+        [SerializeField] private WinTarget winTargetPrefab;
 
         private GameObject leftCollider;
         private GameObject rightCollider;
         private GameObject topCollider;
         private GameObject bottomLeftCollider;
         private GameObject bottomRightCollider;
+        private GameObject winTarget;
+
         public static event Action<GameObject, float> OnMapGenerated;
 
         private GameObject frame;
@@ -61,6 +64,7 @@ namespace Stuart
             if (topCollider != null) Destroy(topCollider);
             if (bottomRightCollider != null) Destroy(bottomRightCollider);
             if (bottomLeftCollider != null) Destroy(bottomLeftCollider);
+            if (winTarget != null) Destroy(winTarget);
 
             var layer = 6;
             leftCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -106,7 +110,14 @@ namespace Stuart
             if(!enabledSolidColliders) bottomRightCollider.GetComponent<MeshRenderer>().enabled = false;
             bottomRightCollider.transform.parent = transform;
             bottomRightCollider.name = "bottomRightCollider";
-            bottomRightCollider.layer = LayerMask.NameToLayer("Bounds");;
+            bottomRightCollider.layer = LayerMask.NameToLayer("Bounds");
+
+            winTarget = Instantiate(winTargetPrefab.gameObject,transform);
+            winTarget.transform.position =new Vector3(0, (bottomVerticalOffset) * sizeScale, 0);
+            winTarget.transform.localScale = new Vector3(1, 1 * sizeScale, 1);
+
+            winTarget.name = "winTarget";
+            if(!enabledSolidColliders) winTarget.GetComponent<MeshRenderer>().enabled = false;
 
         }
 
