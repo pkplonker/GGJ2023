@@ -118,7 +118,8 @@ namespace Stuart
 
             winTarget.name = "winTarget";
             if(!enabledSolidColliders) winTarget.GetComponent<MeshRenderer>().enabled = false;
-
+            
+          
         }
 
 

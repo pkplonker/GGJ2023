@@ -9,6 +9,7 @@ namespace Stuart
         private Inventory invent;
         [SerializeField] private TextMeshProUGUI nutText;
         [SerializeField] private TextMeshProUGUI waterText;
+        [SerializeField] private TextMeshProUGUI sproutText;
 
         private void Awake()
         {
@@ -26,6 +27,8 @@ namespace Stuart
         {
             nutText.text = ((int)invent.GetResource(Resource.Nutrients)).ToString();
             waterText.text = ((int)invent.GetResource(Resource.Water)).ToString();
+            sproutText.text = ((int)invent.GetResource(Resource.Sprout)).ToString();
+
         }
 
         private void OnDisable()

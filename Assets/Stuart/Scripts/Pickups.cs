@@ -7,7 +7,8 @@ namespace Stuart
 public enum Resource
 {
     Water,
-    Nutrients
+    Nutrients,
+    Sprout
 }
 
 

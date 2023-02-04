@@ -1,18 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Stuart;
 using UnityEngine;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 namespace Stuart
 {
     public class ItemSpawner : MonoBehaviour
     {
-        [SerializeField] private List<Pickups> prefabs;
+        [Serializable]
+        public class SpawnData
+        {
+            public Pickups pickup;
+            public int amount;
+        }
+
+        [SerializeField] private List<SpawnData> prefabs;
         private List<Pickups> spawnedItems = new();
         [SerializeField] private Vector3 rayDirection;
-        [SerializeField] private int itemsToSpawnPerArea;
 
         private void OnEnable() => MapGenerator.OnMapGenerated += GenerateObjects;
 
@@ -26,24 +31,43 @@ namespace Stuart
         {
             yield return new WaitForFixedUpdate();
             ClearExisting();
-            int catcher = 0;
             var bounds = background.GetComponent<MeshCollider>().bounds;
-            while (spawnedItems.Count < itemsToSpawnPerArea * scale)
+            foreach (var prefab in prefabs)
             {
-                catcher++;
-                if (catcher > 5000)
+                int spawned = 0;
+                int it = 0;
+                while (spawned < prefab.amount * scale)
                 {
-                    Debug.LogWarning("Failed to spawn all elements");
-                    yield break;
+                    it++;
+                    if (it > 1000 * scale) break;
+                    var go = Instantiate(prefab.pickup.gameObject,
+                        transform);
+                    go.transform.position = RandomPointInBounds(bounds, scale * 0.95f);
+                    if (IsPositionGood(go, rayDirection) && IsPositionGood(go, -rayDirection) && NoOverlap(go))
+                    {
+                        spawnedItems.Add(go.GetComponent<Pickups>());
+                        spawned++;
+                    }
+                    else Destroy(go);
                 }
-
-                var go = GameObject.Instantiate(prefabs[UnityEngine.Random.Range(0, prefabs.Count)].gameObject,
-                    transform);
-                go.transform.position = RandomPointInBounds(bounds, scale * 0.95f);
-                if (IsPositionGood(go, rayDirection) && IsPositionGood(go, -rayDirection))
-                    spawnedItems.Add(go.GetComponent<Pickups>());
-                else Destroy(go);
             }
+        }
+
+        private bool NoOverlap(GameObject go)
+        {
+            var hits = Physics.SphereCastAll(go.transform.position + (Vector3.forward / 2), 0.4f, -Vector3.forward, 1f);
+            Debug.DrawRay(go.transform.position + (Vector3.forward / 2), -Vector3.forward, Color.red, 10f);
+            if (hits.Length > 0)
+            {
+                Debug.Log("test");
+            }
+
+            foreach (var hit in hits)
+            {
+                if (hit.collider.CompareTag("Pickup")) return false;
+            }
+
+            return true;
         }
 
         private static bool IsPositionGood(GameObject go, Vector3 direction)

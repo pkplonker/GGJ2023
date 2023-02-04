@@ -920,6 +920,8 @@ MonoBehaviour:
   frameMaterial: {fileID: 2100000, guid: 103b49cbca0c1f44c872c827332ffc7e, type: 2}
   backgroundMaterial: {fileID: 2100000, guid: cb2addac96d00d64eb0cc4f11244666b, type: 2}
   bottomVerticalOffset: -5.38
+  winTargetPrefab: {fileID: 3413720562204669629, guid: bbee7fa0f49913e48866a11fede5d3e4,
+    type: 3}
   enabledSolidColliders: 0
 --- !u!4 &1927699514
 Transform:

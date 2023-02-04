@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dd2eaa97f05574e848eaf2894ea7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 983725138}
-  Player2: {fileID: 1997797293}
+  player1: {fileID: 983725138}
+  player2: {fileID: 1997797293}
   baseSpeed: 1
   pointDistance: 0.1
   curve:
@@ -288,6 +288,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 123257812}
     m_Modifications:
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3799422993151844578, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1339,10 +1359,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 4747241508664829491, guid: 02368c07bf9c30547ae240fd49adee77, type: 3}
-  - {fileID: 4747241508664829491, guid: 2dddc0b8f25c02a47abfd849337923b6, type: 3}
+  - pickup: {fileID: 4747241508664829491, guid: 00ee9b29454b78f408949c165447a6df,
+      type: 3}
+    amount: 3
+  - pickup: {fileID: 4747241508664829491, guid: 2dddc0b8f25c02a47abfd849337923b6,
+      type: 3}
+    amount: 60
+  - pickup: {fileID: 4747241508664829491, guid: 02368c07bf9c30547ae240fd49adee77,
+      type: 3}
+    amount: 60
   rayDirection: {x: 1, y: 0, z: 0}
-  itemsToSpawnPerArea: 150
 --- !u!1 &1997797293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1505,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 123257812}
     m_Modifications:
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987820919771220182, guid: 587172c323d4b644c82b13753ac59b4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3799422993151844578, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
       propertyPath: m_AnchorMax.y
