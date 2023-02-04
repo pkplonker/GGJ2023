@@ -10,6 +10,14 @@ public class controls : MonoBehaviour
 
     [SerializeField] private float baseSpeed;
 
+    [SerializeField] private float pointDistance;
+
+    private Vector3 position1;
+    private Vector3 position2;
+
+    private AnimationCurve curve1;
+    private AnimationCurve curve2;
+
     private Rigidbody rb1;
     private Rigidbody rb2;
 
@@ -53,16 +61,18 @@ public class controls : MonoBehaviour
         lr1 = transform.GetChild(0).GetComponent<LineRenderer>();
         Player1.transform.position = new Vector3(-3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         lr1.startWidth = 0.1f;
-        lr1.endWidth = 0.1f;
+        lr1.endWidth = 0.05f;
         lr1.positionCount = 1;
         lr1.SetPosition(0, Player1.transform.position);
+        position1 = Player1.transform.position;
 
         lr2 = transform.GetChild(1).GetComponent<LineRenderer>();
         Player2.transform.position = new Vector3(3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         lr2.startWidth = 0.1f;
-        lr2.endWidth = 0.1f;
+        lr2.endWidth = 0.05f;
         lr2.positionCount = 1;
         lr2.SetPosition(0, Player2.transform.position);
+        position2 = Player2.transform.position;
 
         start = true;
     }
@@ -140,27 +150,25 @@ public class controls : MonoBehaviour
         velocity1 = Vector3.Normalize(new Vector3(hor1, ver1, 0)) * baseSpeed;
         velocity2 = Vector3.Normalize(new Vector3(hor2, ver2, 0)) * baseSpeed;
 
-        if (velocity1 != rb1.velocity)
+        if(Vector3.Distance(position1, Player1.transform.position) > pointDistance)
         {
             lr1.positionCount += 1;
             lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
-            rb1.velocity = velocity1;
-        }
-        else
-        {
-            lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
+            position1 = Player1.transform.position;
         }
 
-        if (velocity2 != rb2.velocity)
+        rb1.velocity = velocity1;
+        lr1.SetPosition(lr1.positionCount - 1, Player1.transform.position);
+
+        if (Vector3.Distance(position2, Player2.transform.position) > pointDistance)
         {
             lr2.positionCount += 1;
             lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
-            rb2.velocity = velocity2;
+            position2 = Player2.transform.position;
         }
-        else
-        {
-            lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
-        }
+
+        rb2.velocity = velocity2;
+        lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
     }
 
     private void BakeLineMesh()
@@ -169,13 +177,13 @@ public class controls : MonoBehaviour
         {
             Mesh mesh1 = new Mesh();
             mesh1.name = "mesh1";
-            //Vector3 temp = lr1.GetPosition(lr1.positionCount - 1);
-            //Vector3 temp2 = lr1.GetPosition(lr1.positionCount - 2);
-            //lr1.positionCount -= 2;
+            Vector3 temp = lr1.GetPosition(lr1.positionCount - 1);
+            Vector3 temp2 = lr1.GetPosition(lr1.positionCount - 2);
+            lr1.positionCount -= 2;
             lr1.BakeMesh(mesh1);
-            //lr1.positionCount += 2;
-            //lr1.SetPosition(lr1.positionCount - 1, temp);
-            //lr1.SetPosition(lr1.positionCount - 2, temp2);
+            lr1.positionCount += 2;
+            lr1.SetPosition(lr1.positionCount - 1, temp);
+            lr1.SetPosition(lr1.positionCount - 2, temp2);
             mc1.sharedMesh = mesh1;
         }
 
@@ -183,13 +191,13 @@ public class controls : MonoBehaviour
         {
             Mesh mesh2 = new Mesh();
             mesh2.name = "mesh2";
-            //Vector3 temp = lr1.GetPosition(lr2.positionCount - 1);
-            //Vector3 temp2 = lr1.GetPosition(lr2.positionCount - 2);
-            //lr2.positionCount -= 2;
+            Vector3 temp = lr2.GetPosition(lr2.positionCount - 1);
+            Vector3 temp2 = lr2.GetPosition(lr2.positionCount - 2);
+            lr2.positionCount -= 2;
             lr2.BakeMesh(mesh2);
-            //lr2.positionCount += 1;
-            //lr2.SetPosition(lr2.positionCount - 1, temp);
-            //lr2.SetPosition(lr2.positionCount - 2, temp2);
+            lr2.positionCount += 2;
+            lr2.SetPosition(lr2.positionCount - 1, temp);
+            lr2.SetPosition(lr2.positionCount - 2, temp2);
             mc2.sharedMesh = mesh2;
         }
     }
