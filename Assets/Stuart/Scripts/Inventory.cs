@@ -8,6 +8,12 @@ namespace Stuart
     public class Inventory : MonoBehaviour
     {
         private Dictionary<Resource, float> resources = new();
+        public event Action OnInventChanged; 
+        [field:SerializeField] public int playerId { get; private set; }
+
+        private void Start()=>OnInventChanged?.Invoke();
+
+        
 
         public void Add(Resource type, float amount)
         {
@@ -15,9 +21,12 @@ namespace Stuart
 
             {
                 resources[type] += amount;
+                OnInventChanged?.Invoke();
                 return;
             }
             resources.Add(type, amount);
+            OnInventChanged?.Invoke();
+
         }
 
         public bool Remove(Resource type, float amount)
@@ -25,6 +34,7 @@ namespace Stuart
             if (!resources.ContainsKey(type)) return false;
             if (!(resources[type] >= amount)) return false;
             resources[type] -= amount;
+            OnInventChanged?.Invoke();
             return true;
         }
 
@@ -34,6 +44,6 @@ namespace Stuart
             return resources[type] >= amount;
         }
 
-        private float GetResource(Resource type) => resources.ContainsKey(type) ? resources[type] : 0.0f;
+        public float GetResource(Resource type) => resources.ContainsKey(type) ? resources[type] : 0.0f;
     }
 }

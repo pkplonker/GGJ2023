@@ -45,8 +45,6 @@ public class ItemSpawner : MonoBehaviour
     private static bool IsPositionGood(GameObject go, Vector3 direction)
     {
         var res = Physics.RaycastAll(go.transform.position, direction, 1000f);
-        if (res.Length > 0) Debug.Log(res[0].collider.name);
-        Debug.DrawLine(go.transform.position, go.transform.position + (direction * 1000), Color.red, 10f);
         var hitCount = 0;
         foreach (var hit in res)
         {

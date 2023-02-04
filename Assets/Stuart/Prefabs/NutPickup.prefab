@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fa225836f1ed74e989d306bc8a39a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 0
+  resource: 1
   amount: 20
   destroyDelay: 0.5
   particleSystem: {fileID: 3151000522097306149}
