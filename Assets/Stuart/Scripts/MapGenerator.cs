@@ -41,14 +41,6 @@ namespace Stuart
             GenerateColliders();
             OnMapGenerated?.Invoke(plane);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-                GenerateMap();
-
-        }
-
         private void GenerateColliders()
         {
             var rotation = 12.5f;
