@@ -62,20 +62,20 @@ public class cameraControler : MonoBehaviour
 
         if (camera1.transform.position.y > max - camera1.orthographicSize*3)
         {
-            camera1.transform.position = new Vector3(0, background.GetComponent<MeshRenderer>().bounds.max.y - camera1.orthographicSize*3, -10);
+            camera1.transform.position = new Vector3(0, max - camera1.orthographicSize*3, -10);
         }
         if (camera1.transform.position.y < min + camera1.orthographicSize)
         {
-            camera1.transform.position = new Vector3(0, background.GetComponent<MeshRenderer>().bounds.min.y + camera1.orthographicSize, -10);
+            camera1.transform.position = new Vector3(0, min + camera1.orthographicSize, -10);
         }
 
         if (camera2.transform.position.y > max - camera2.orthographicSize)
         {
-            camera2.transform.position = new Vector3(0, background.GetComponent<MeshRenderer>().bounds.max.y - camera2.orthographicSize, -10);
+            camera2.transform.position = new Vector3(0, max - camera2.orthographicSize, -10);
         }
         if (camera2.transform.position.y < min + camera2.orthographicSize*3)
         {
-            camera2.transform.position = new Vector3(0, background.GetComponent<MeshRenderer>().bounds.min.y + camera2.orthographicSize*3, -10);
+            camera2.transform.position = new Vector3(0, min + camera2.orthographicSize*3, -10);
         }
     }
 }
