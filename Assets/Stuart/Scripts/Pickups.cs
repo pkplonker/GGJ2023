@@ -24,18 +24,19 @@ namespace Stuart
             sprite = GetComponent<Renderer>();
         }
 
-     
+
 
         private void OnTriggerEnter(Collider other)
         {
             var invent = other.GetComponent<Inventory>();
             if (!invent)
             {
-                DestroyImmediate(gameObject);
-            };
+                Destroy(gameObject);
+            }
             invent.Add(resource, amount);
             PickedUp();
         }
+        
 
         private void PickedUp()
         {

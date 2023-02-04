@@ -40,8 +40,16 @@ namespace Stuart
         {
             GenerateDirt();
             GenerateFrame();
-            GenerateColliders();
+            GenerateColliders(); 
             OnMapGenerated?.Invoke(plane,sizeScale);
+
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+                GenerateMap();
+
         }
         private void GenerateColliders()
         {

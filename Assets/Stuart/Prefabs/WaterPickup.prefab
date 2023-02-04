@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7561561552275437032}
+  - {fileID: 6786608129167092213}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   resource: 0
   amount: 20
   destroyDelay: 0.5
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 6786608129185493809}
 --- !u!135 &1794503493
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &7561561552275895822
+--- !u!1001 &6786608129167550995
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -173,9 +173,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30662cb696c919a4c837de0a68136e00, type: 3}
---- !u!4 &7561561552275437032 stripped
+--- !u!4 &6786608129167092213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459750, guid: 30662cb696c919a4c837de0a68136e00,
     type: 3}
-  m_PrefabInstance: {fileID: 7561561552275895822}
+  m_PrefabInstance: {fileID: 6786608129167550995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6786608129185493809 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19814690, guid: 30662cb696c919a4c837de0a68136e00,
+    type: 3}
+  m_PrefabInstance: {fileID: 6786608129167550995}
   m_PrefabAsset: {fileID: 0}
