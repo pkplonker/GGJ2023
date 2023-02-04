@@ -56,27 +56,32 @@ namespace Stuart
             leftCollider.transform.eulerAngles = new Vector3(0, 0, rotation);
             leftCollider.transform.position = new Vector3(-posOffset * sizeScale, 0, 0);
             leftCollider.GetComponent<MeshRenderer>().enabled = false;
+            leftCollider.transform.parent = transform;
             
             rightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             rightCollider.transform.localScale = new Vector3(1 * sizeScale, size * sizeScale, 1);
             rightCollider.transform.eulerAngles = new Vector3(0, 0, -rotation);
             rightCollider.transform.position = new Vector3(posOffset * sizeScale, 0, 0);
             rightCollider.GetComponent<MeshRenderer>().enabled = false;
-            
+            rightCollider.transform.parent = transform;
+
             topCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             topCollider.transform.localScale = new Vector3(10 * sizeScale, 1 * sizeScale,1);
             topCollider.transform.position = new Vector3(0,5.5f * sizeScale, 0);
             topCollider.GetComponent<MeshRenderer>().enabled = false;
-            
+            topCollider.transform.parent = transform;
+
             bottomLeftCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             bottomLeftCollider.transform.localScale = new Vector3(5 * sizeScale, 1 * sizeScale,1);
             bottomLeftCollider.transform.position = new Vector3(-2.86f*sizeScale,-5f * sizeScale, 0);
             bottomLeftCollider.GetComponent<MeshRenderer>().enabled = false;
+            bottomLeftCollider.transform.parent = transform;
 
             bottomRightCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
             bottomRightCollider.transform.localScale = new Vector3(5 * sizeScale, 1 * sizeScale,1);
             bottomRightCollider.transform.position = new Vector3(2.53f*sizeScale,-5f * sizeScale, 0);
             bottomRightCollider.GetComponent<MeshRenderer>().enabled = false;
+            bottomRightCollider.transform.parent = transform;
 
         }
 
@@ -92,8 +97,12 @@ namespace Stuart
         {
             if (frame != null) Destroy(frame);
             frame = GeneratePlane(frameMaterial);
+            frame.transform.parent = transform;
+
             if (background != null) Destroy(background);
             background = GeneratePlane(backgroundMaterial);
+            background.transform.parent = transform;
+
         }
 
         private GameObject GeneratePlane(Material material, bool scale = false)
@@ -112,6 +121,7 @@ namespace Stuart
         {
             if (plane != null) Destroy(plane);
             plane = GeneratePlane(dirtMaterial, true);
+            plane.transform.parent = transform;
         }
     }
 }
