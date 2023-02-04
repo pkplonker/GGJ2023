@@ -36,7 +36,7 @@ namespace Stuart
         {
             GenerateDirt();
             GenerateFrame();
-            SetCameraStartPosition();
+            //SetCameraStartPosition();
             GenerateColliders();
             OnMapGenerated?.Invoke(plane);
         }
