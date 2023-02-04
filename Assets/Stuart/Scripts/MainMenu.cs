@@ -41,7 +41,7 @@ namespace Stuart
 #endif
         }
 
-        private void PlaySound() => source.PlayOneShot(clickClip);
+        private void PlaySound() => AudioController.instance.PlaySound(clickClip);
 
 
         public void Settings(bool playsound = true)
