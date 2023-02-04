@@ -27,6 +27,8 @@ public class PlayerClass
 
     public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve)
     {
+        player = _player;
+
         rb = player.GetComponent<Rigidbody>();
         mc = line.GetComponent<MeshCollider>();
         lr = line.GetComponent<LineRenderer>();
