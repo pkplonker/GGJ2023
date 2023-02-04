@@ -8,12 +8,11 @@ namespace Stuart
     public class Inventory : MonoBehaviour
     {
         private Dictionary<Resource, float> resources = new();
-        public event Action OnInventChanged; 
-        [field:SerializeField] public int playerId { get; private set; }
+        public event Action OnInventChanged;
+        [field: SerializeField] public int playerId { get; private set; }
 
-        private void Start()=>OnInventChanged?.Invoke();
+        private void Start() => OnInventChanged?.Invoke();
 
-        
 
         public void Add(Resource type, float amount)
         {
@@ -24,9 +23,9 @@ namespace Stuart
                 OnInventChanged?.Invoke();
                 return;
             }
+
             resources.Add(type, amount);
             OnInventChanged?.Invoke();
-
         }
 
         public bool Remove(Resource type, float amount)
