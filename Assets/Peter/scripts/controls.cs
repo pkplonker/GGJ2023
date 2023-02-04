@@ -130,7 +130,8 @@ public class controls : MonoBehaviour
             {
                 lr1 = go.GetComponent<LineRenderer>();
                 mc1 = go.GetComponent<MeshCollider>();
-                lr1.positionCount = i1 + 1;
+                lr1.positionCount = i1 + 2;
+                lr1.SetPosition(i1 + 1, player1.transform.position);
             }
         }
         if (Input.GetKey("a"))
@@ -167,7 +168,8 @@ public class controls : MonoBehaviour
             {
                 lr2 = go.GetComponent<LineRenderer>();
                 mc2 = go.GetComponent<MeshCollider>();
-                lr2.positionCount = i2 + 1;
+                lr2.positionCount = i2 + 2;
+                lr2.SetPosition(i1 + 1, player2.transform.position);
             }
         }
         if (Input.GetKey("left"))
