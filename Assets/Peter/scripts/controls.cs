@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Stuart;
 
 public class controls : MonoBehaviour
 {
@@ -26,37 +27,59 @@ public class controls : MonoBehaviour
     private float ver1 = 0;
     private float ver2 = 0;
 
+    private bool start = false;
+
+    private void OnEnable()
+    {
+        MapGenerator.OnMapGenerated += playerStart;
+    }
+
+    private void OnDisable()
+    {
+        MapGenerator.OnMapGenerated -= playerStart;
+    }
+
     private void Start()
     {
         rb1 = Player1.GetComponent<Rigidbody>();
         rb2 = Player2.GetComponent<Rigidbody>();
-
-        lr1 = transform.GetChild(0).GetComponent<LineRenderer>();
-        lr2 = transform.GetChild(1).GetComponent<LineRenderer>();
-
+        
         mc1 = transform.GetChild(0).GetComponent<MeshCollider>();
         mc2 = transform.GetChild(1).GetComponent<MeshCollider>();
+    }
 
+    private void playerStart(GameObject background)
+    {
+        lr1 = transform.GetChild(0).GetComponent<LineRenderer>();
+        Player1.transform.position = new Vector3(-3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
+        lr1.startWidth = 0.1f;
+        lr1.endWidth = 0.1f;
         lr1.positionCount = 1;
         lr1.SetPosition(0, Player1.transform.position);
 
+        lr2 = transform.GetChild(1).GetComponent<LineRenderer>();
+        Player2.transform.position = new Vector3(3, background.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
+        lr2.startWidth = 0.1f;
+        lr2.endWidth = 0.1f;
         lr2.positionCount = 1;
         lr2.SetPosition(0, Player2.transform.position);
 
-        lr1.startWidth = 0.1f;
-        lr1.endWidth = 0.1f;
-
-        lr2.startWidth = 0.1f;
-        lr2.endWidth = 0.1f;
+        start = true;
     }
 
     void Update()
     {
         GetControls();
+    }
 
-        VelocityLine();
+    private void FixedUpdate()
+    {
+        if (start)
+        {
+            VelocityLine();
 
-        BakeLineMesh();
+            BakeLineMesh();
+        }
     }
 
     private void GetControls()
@@ -136,38 +159,38 @@ public class controls : MonoBehaviour
         }
         else
         {
-            lr2.SetPosition(lr2.positionCount - 1, Player1.transform.position);
+            lr2.SetPosition(lr2.positionCount - 1, Player2.transform.position);
         }
     }
 
     private void BakeLineMesh()
     {
-        if (lr1.positionCount > 3)
+        if (lr1.positionCount > 2)
         {
             Mesh mesh1 = new Mesh();
             mesh1.name = "mesh1";
-            Vector3 temp = lr1.GetPosition(lr1.positionCount - 1);
-            Vector3 temp2 = lr1.GetPosition(lr1.positionCount - 2);
-            lr1.positionCount -= 2;
+            //Vector3 temp = lr1.GetPosition(lr1.positionCount - 1);
+            //Vector3 temp2 = lr1.GetPosition(lr1.positionCount - 2);
+            //lr1.positionCount -= 2;
             lr1.BakeMesh(mesh1);
-            lr1.positionCount += 2;
-            lr1.SetPosition(lr1.positionCount - 1, temp);
-            lr1.SetPosition(lr1.positionCount - 2, temp2);
+            //lr1.positionCount += 2;
+            //lr1.SetPosition(lr1.positionCount - 1, temp);
+            //lr1.SetPosition(lr1.positionCount - 2, temp2);
             mc1.sharedMesh = mesh1;
         }
 
-        if(lr2.positionCount > 3)
+        if(lr2.positionCount > 2)
         {
             Mesh mesh2 = new Mesh();
             mesh2.name = "mesh2";
-            Vector3 temp = lr1.GetPosition(lr2.positionCount - 1);
-            Vector3 temp2 = lr1.GetPosition(lr2.positionCount - 2);
-            lr2.positionCount -= 2;
+            //Vector3 temp = lr1.GetPosition(lr2.positionCount - 1);
+            //Vector3 temp2 = lr1.GetPosition(lr2.positionCount - 2);
+            //lr2.positionCount -= 2;
             lr2.BakeMesh(mesh2);
-            lr2.positionCount += 1;
-            lr2.SetPosition(lr2.positionCount - 1, temp);
-            lr2.SetPosition(lr2.positionCount - 2, temp2);
-            mc1.sharedMesh = mesh2;
+            //lr2.positionCount += 1;
+            //lr2.SetPosition(lr2.positionCount - 1, temp);
+            //lr2.SetPosition(lr2.positionCount - 2, temp2);
+            mc2.sharedMesh = mesh2;
         }
     }
 }
