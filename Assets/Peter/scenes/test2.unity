@@ -162,6 +162,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  lm:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!4 &264263681
 Transform:
   m_ObjectHideFlags: 0
@@ -190,7 +193,7 @@ GameObject:
   - component: {fileID: 614883033}
   - component: {fileID: 614883035}
   - component: {fileID: 614883034}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: line2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fcf9443dc563740ac5e0ea0cb55926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <playerId>k__BackingField: 0
 --- !u!1 &1111309467
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +625,7 @@ GameObject:
   - component: {fileID: 1111309468}
   - component: {fileID: 1111309470}
   - component: {fileID: 1111309471}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: line1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,3 +1081,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fcf9443dc563740ac5e0ea0cb55926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <playerId>k__BackingField: 0

@@ -14,6 +14,8 @@ public class controls : MonoBehaviour
 
     [SerializeField] private AnimationCurve curve;
 
+    [SerializeField] private LayerMask lm;
+
     private Rigidbody rb1;
     private Rigidbody rb2;
 
@@ -33,6 +35,8 @@ public class controls : MonoBehaviour
     private float hor2 = 0;
     private float ver1 = 0;
     private float ver2 = 0;
+    private float lasthor1 = -1;
+    private float lasthor2 = -1;
 
     private double startTime;
 
@@ -121,7 +125,7 @@ public class controls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject go = powerUse(ref power1, lr1, player1, rb1, ref i1, mc1);
+            GameObject go = powerUse(ref power1, lr1, player1, rb1, ref i1, mc1, lasthor1);
             if (go != null)
             {
                 lr1 = go.GetComponent<LineRenderer>();
@@ -132,10 +136,12 @@ public class controls : MonoBehaviour
         if (Input.GetKey("a"))
         {
             hor1 = -1;
+            lasthor1 = -1;
         }
         else if (Input.GetKey("d"))
         {
             hor1 = 1;
+            lasthor1 = 1;
         }
         else
         {
@@ -156,7 +162,7 @@ public class controls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            GameObject go = powerUse(ref power2, lr2, player2, rb2, ref i2, mc2);
+            GameObject go = powerUse(ref power2, lr2, player2, rb2, ref i2, mc2, lasthor2);
             if (go != null)
             {
                 lr2 = go.GetComponent<LineRenderer>();
@@ -167,10 +173,12 @@ public class controls : MonoBehaviour
         if (Input.GetKey("left"))
         {
             hor2 = -1;
+            lasthor1 = -1;
         }
         else if (Input.GetKey("right"))
         {
             hor2 = 1;
+            lasthor1 = 1;
         }
         else
         {
@@ -225,7 +233,7 @@ public class controls : MonoBehaviour
         }
     }
 
-    private GameObject powerUse(ref bool power, LineRenderer lr, GameObject player, Rigidbody rb, ref int i, MeshCollider mc)
+    private GameObject powerUse(ref bool power, LineRenderer lr, GameObject player, Rigidbody rb, ref int i, MeshCollider mc, float hor)
     {
         if (!power)
         {
@@ -234,13 +242,42 @@ public class controls : MonoBehaviour
             lr.SetPosition(lr.positionCount - 3, player.transform.position);
             lr.SetPosition(lr.positionCount - 2, player.transform.position);
             lr.SetPosition(lr.positionCount - 1, player.transform.position);
+            BakeLineMesh(lr, mc);
             rb.isKinematic = true;
             i = lr.positionCount - 1;
         }
         else if (power)
         {
+            if(i >= lr.positionCount - 1)
+            {
+                i = lr.positionCount - 2;
+            }
+            Vector3 direction = lr.GetPosition(i) - lr.GetPosition(i + 1);
+            if (direction.y < 0)
+            {
+                direction = -direction;
+            }
+            Vector3 cross = Vector3.Cross(Vector3.Normalize(direction), new Vector3(0, 0, 1));
+            Vector3 newpos = player.transform.position + (cross * 0.21f * hor);
+            Vector3 oppos = player.transform.position + (cross * 0.21f * -hor);
+            
+            Collider[] hits = Physics.OverlapSphere(newpos, 0.1f, lm);
+            Collider[] ophits = Physics.OverlapSphere(oppos, 0.1f, lm);
+
+            if (hits.Length == 0)
+            {
+                player.transform.position = newpos;
+            }
+            else if (ophits.Length == 0) 
+            {
+                player.transform.position = player.transform.position + (cross * 0.1f * -hor);
+            }
+            else
+            {
+                return null;
+            }
+
             GameObject go = Instantiate(lr.gameObject, transform);
-            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.1f, player.transform.position.z);
             power = false;
             rb.isKinematic = false;
             return go;
