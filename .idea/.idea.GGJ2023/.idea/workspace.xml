@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd2f46ff-0c72-4558-a0e4-ff47d8fc0917" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Material/dirt.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Prefabs/WaterPickup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Stuart/StuartTest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +14,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ca7bdfed5874f329433256f548490641a000/19/4fac53bc/MeshCollider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/f5/2e523577/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42a64fd733d9417da1ea3a757ad9a96d81d600/b8/8b6b37ae/Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/MapGeneratorEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stuart/Scripts/Pickups.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -89,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675449586201</updated>
       <workItem from="1675449590000" duration="3152000" />
-      <workItem from="1675498577123" duration="12057000" />
+      <workItem from="1675498577123" duration="14565000" />
     </task>
     <servers />
   </component>
