@@ -7,7 +7,6 @@ namespace Stuart
 	public class MapGenerator : MonoBehaviour
 	{
 		[field: SerializeField] public float sizeScale { get; private set; } = 1f;
-		[SerializeField] private Camera camera;
 		[SerializeField] private Vector3 startOrientation;
 		private GameObject plane;
 		[SerializeField] private Material dirtMaterial;
@@ -27,14 +26,8 @@ namespace Stuart
 
 		private GameObject frame;
 		private GameObject background;
-		private float defaultCameraSize;
 		public bool enabledSolidColliders = false;
-
-		private void Awake()
-		{
-			if (camera == null) camera = Camera.main;
-			defaultCameraSize = camera.orthographicSize;
-		}
+		
 
 		private void Start() => GenerateMap();
 
