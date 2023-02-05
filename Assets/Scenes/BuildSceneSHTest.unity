@@ -2266,7 +2266,7 @@ GameObject:
   - component: {fileID: 1485350332}
   - component: {fileID: 1485350331}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2716,7 +2716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85244a18f2871944589a3201359608dd, type: 2}
   m_sharedMaterial: {fileID: -3737784066542717757, guid: 85244a18f2871944589a3201359608dd,
@@ -2866,10 +2866,10 @@ MonoBehaviour:
     amount: 3
   - pickup: {fileID: 4747241508664829491, guid: 2dddc0b8f25c02a47abfd849337923b6,
       type: 3}
-    amount: 40
+    amount: 60
   - pickup: {fileID: 4747241508664829491, guid: 02368c07bf9c30547ae240fd49adee77,
       type: 3}
-    amount: 40
+    amount: 60
   rayDirection: {x: 1, y: 0, z: 0}
 --- !u!1001 &3799422994671638412
 PrefabInstance:

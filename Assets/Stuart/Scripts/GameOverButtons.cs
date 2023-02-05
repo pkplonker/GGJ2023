@@ -46,7 +46,7 @@ namespace Stuart
 		public void Continue(bool playsound = true)
 		{
 			if (playsound) PlaySound();
-			//todo load next scene
+			SceneManager.LoadScene(1);
 		}
 
 		private void PlaySound() => AudioController.instance.PlaySound(clickClip);
