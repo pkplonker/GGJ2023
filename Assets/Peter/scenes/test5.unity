@@ -608,7 +608,7 @@ MonoBehaviour:
   lm:
     serializedVersion: 2
     m_Bits: 192
-  timeLim: 60
+  timeLim: 5
   sproutTimeLim: 5
   sproutSpeed: 2
   curve:
