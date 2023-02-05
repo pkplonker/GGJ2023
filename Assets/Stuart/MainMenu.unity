@@ -1321,8 +1321,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1288243494}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OpenNewGame
+        m_TargetAssemblyTypeName: Stuart.MainMenu, Assembly-CSharp
+        m_MethodName: OpenMain
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,25 +1,23 @@
-using System;
+    using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.Serialization;
 
 namespace Stuart
 {
 
-    [RequireComponent(typeof(AudioSource))]
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private GameObject mainMenuPanel;
         [SerializeField] private GameObject newGamePanel;
         [SerializeField] private GameObject settingsPanel;
         [SerializeField] private AudioClip clickClip;
-        private AudioSource source;
 
         private void Awake()
         {
             OpenMain(false);
-            source = GetComponent<AudioSource>();
         }
 
         public void OpenMain(bool playsound = true)
@@ -63,8 +61,7 @@ namespace Stuart
         public void StartGame(bool playsound = true)
         {
             if (playsound) PlaySound();
-            Debug.Log("Not yet linked");
-            //todo change scene
+            SceneManager.LoadScene(1);
         }
     }
 }

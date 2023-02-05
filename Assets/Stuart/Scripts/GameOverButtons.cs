@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Stuart
@@ -39,7 +40,7 @@ namespace Stuart
 		public void Quit(bool playsound = true)
 		{
 			if (playsound) PlaySound();
-			//todo move to main menu
+			SceneManager.LoadScene(0);
 		}
 
 		public void Continue(bool playsound = true)
