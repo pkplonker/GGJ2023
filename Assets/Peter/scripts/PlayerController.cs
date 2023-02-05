@@ -5,6 +5,7 @@ using Stuart;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Debug")] [SerializeField] private bool isDebug = true;
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
@@ -43,8 +44,8 @@ public class PlayerController : MonoBehaviour
         curve.AddKey(0.0f, 0.1f);
         curve.AddKey(1.0f, 0.05f);
 
-        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve);
-        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve);
+        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve,isDebug);
+        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve,isDebug);
 
         start = true;
     }

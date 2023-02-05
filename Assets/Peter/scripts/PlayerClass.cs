@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Stuart;
 using UnityEngine;
 
 public class PlayerClass
@@ -24,8 +25,10 @@ public class PlayerClass
     private bool sprouting = false;
 
     private int index;
-
-    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve)
+    private bool canMove;
+    private Inventory invent;
+    private bool debug;
+    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve, bool debug=false)
     {
         player = _player;
 
@@ -34,8 +37,11 @@ public class PlayerClass
         lr = line.GetComponent<LineRenderer>();
 
         player.transform.position = new Vector3(player.transform.position.x, boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
-
         LrSetup(curve);
+        GameController.OnGameStart += () => { canMove = true; };
+        GameController.OnGameEnd += (int x) => { canMove = false; };
+        invent = player.GetComponent<Inventory>();
+        this.debug = debug;
     }
 
     public static void SetPerams(float _baseSpeed, float _pointDistance, LayerMask _lm)
@@ -87,8 +93,9 @@ public class PlayerClass
 
     public void Sprout(Transform controller)
     {
-        if (!sprouting)
+        if (!sprouting && (invent.HasEnough(Resource.Sprout,1)||debug))
         {
+            if(!debug)invent.Remove(Resource.Sprout, 1);
             sprouting = true;
             lr.positionCount += 3;
             lr.SetPosition(lr.positionCount - 3, player.transform.position);
@@ -188,6 +195,7 @@ public class PlayerClass
 
     public void UpdateLoop()
     {
+        if(!canMove)return;
         if (!sprouting)
         {
             MoveDraw();
