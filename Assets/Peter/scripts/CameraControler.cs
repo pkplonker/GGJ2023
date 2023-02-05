@@ -21,15 +21,28 @@ public class CameraControler : MonoBehaviour
 
     private float max;
     private float min;
+    private bool isDisabled;
     private void OnEnable()
     {
         MapGenerator.OnMapGenerated += SetBounds;
+        GameController.OnGameEnd += GameEnd;
     }
 
     private void OnDisable()
     {
         MapGenerator.OnMapGenerated -= SetBounds;
+        GameController.OnGameEnd -= GameEnd;
     }
+
+    private void GameEnd(int arg1, WinReason arg2)
+    {
+        isDisabled = true;
+        DisableBorder();
+        camera1.transform.position = new Vector3(camera1.transform.position.x, 0, camera1.transform.position.z);
+    }
+
+    private void DisableBorder()=>border.enabled = false;
+    
 
     private void SetBounds(GameObject _background,float val)
     {
@@ -41,6 +54,7 @@ public class CameraControler : MonoBehaviour
 
     void Update()
     {
+        if(isDisabled)return;
         if (player1.transform.position.y < player2.transform.position.y)
         {
             target1 = player1.transform.position.y;

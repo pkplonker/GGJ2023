@@ -11,7 +11,7 @@ namespace Stuart
     {
         public static event Action OnGameStart;
         public static event Action<int,WinReason> OnGameEnd;
-
+        private static bool hasWinner = false;
         private void Awake() => GameStatRecorder.StartGame();
 
         private void OnEnable()
@@ -48,6 +48,8 @@ namespace Stuart
         
         public static void PlayerWin(int winnerId,WinReason condition)
         {
+            if (hasWinner) return;
+            hasWinner = true;
             GameStatRecorder.StopGame(winnerId, FindObjectsOfType<Inventory>().ToList());
             OnGameEnd?.Invoke(winnerId,condition);
         }
