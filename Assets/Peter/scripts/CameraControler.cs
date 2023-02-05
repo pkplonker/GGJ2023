@@ -18,7 +18,6 @@ public class CameraControler : MonoBehaviour
 
     private float max;
     private float min;
-
     private void OnEnable()
     {
         MapGenerator.OnMapGenerated += SetBounds;

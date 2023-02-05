@@ -31,13 +31,17 @@ namespace Stuart
 			var camStart = new Vector2(playerCamera.rect.width, playerCamera.rect.height);
 			var sizeStart = playerCamera.orthographicSize;
 			var targetSize = FindObjectOfType<MapGenerator>().sizeScale * 5;
+			
+			// var width = Mathf.Lerp(camStart.x, 1, progress);
+			// var height = Mathf.Lerp(camStart.y, 1, progress);
+			 playerCamera.rect = new Rect(playerCamera.rect.x, playerCamera.rect.y, 1, 1);
 			while (timer < zoomTime)
 			{
 				timer += Time.deltaTime;
 				var progress = timer / zoomTime;
-				var width = Mathf.Lerp(camStart.x, 1, progress);
-				var height = Mathf.Lerp(camStart.y, 1, progress);
-				playerCamera.rect = new Rect(playerCamera.rect.x, playerCamera.rect.y, width, height);
+				// var width = Mathf.Lerp(camStart.x, 1, progress);
+				// var height = Mathf.Lerp(camStart.y, 1, progress);
+				// playerCamera.rect = new Rect(playerCamera.rect.x, playerCamera.rect.y, width, height);
 				playerCamera.orthographicSize = Mathf.Lerp(sizeStart, targetSize, progress);
 				yield return null;
 			}

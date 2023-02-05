@@ -27,6 +27,8 @@ namespace Stuart
 		private GameObject frame;
 		private GameObject background;
 		public bool enabledSolidColliders = false;
+		private ItemSpawner spawner;
+		private void Awake()=>spawner = GetComponent<ItemSpawner>();
 		
 
 		private void Start() => GenerateMap();
@@ -37,9 +39,10 @@ namespace Stuart
 			GenerateDirt();
 			GenerateFrame();
 			GenerateColliders();
-			OnMapGenerated?.Invoke(plane, sizeScale);
+			spawner.Spawn(plane, sizeScale, SpawnerCallback);
 		}
 
+		private void SpawnerCallback() => OnMapGenerated?.Invoke(plane, sizeScale);
 		private void GenerateColliders()
 		{
 			var rotation = 12.5f;

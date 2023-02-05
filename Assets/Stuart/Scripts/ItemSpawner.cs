@@ -19,15 +19,15 @@ namespace Stuart
         private List<Pickups> spawnedItems = new();
         [SerializeField] private Vector3 rayDirection;
 
-        private void OnEnable() => MapGenerator.OnMapGenerated += GenerateObjects;
+        //private void OnEnable() => MapGenerator.OnMapGenerated += GenerateObjects;
 
-        private void OnDisable() => MapGenerator.OnMapGenerated -= GenerateObjects;
+       // private void OnDisable() => MapGenerator.OnMapGenerated -= GenerateObjects;
 
-        private void GenerateObjects(GameObject background, float scale) =>
-            StartCoroutine(GenerateObjectsCor(background, scale));
+        public void Spawn(GameObject background, float scale, Action callback) =>
+            StartCoroutine(GenerateObjectsCor(background, scale,callback));
 
 
-        private IEnumerator GenerateObjectsCor(GameObject background, float scale)
+        private IEnumerator GenerateObjectsCor(GameObject background, float scale, Action callback)
         {
             yield return new WaitForFixedUpdate();
             ClearExisting();
@@ -46,6 +46,7 @@ namespace Stuart
                     if (IsPositionGood(go, rayDirection) && IsPositionGood(go, -rayDirection))
                     {
                         spawnedItems.Add(go.GetComponent<Pickups>());
+                        go.SetActive(false);
                         spawned++;
                     }
                     else Destroy(go);
@@ -58,8 +59,10 @@ namespace Stuart
                 if (OverLaps(spawnedItems[i].gameObject))
                 {
                     Destroy(spawnedItems[i].gameObject);
-                }
+                }else spawnedItems[i].gameObject.SetActive(true);
             }
+
+            callback?.Invoke();
         }
 
 
@@ -108,5 +111,7 @@ namespace Stuart
 
             spawnedItems.Clear();
         }
+
+      
     }
 }

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     PlayerClass Player1;
     PlayerClass Player2;
-
+    private bool init;
     private void OnEnable()
     {
         MapGenerator.OnMapGenerated += playerStart;
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void playerStart(GameObject background,float val)
     {
+        init = true;
         curve = new AnimationCurve();
         curve.AddKey(0.0f, 0.1f);
         curve.AddKey(1.0f, 0.05f);
@@ -52,11 +53,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!init) return;
         GetControls();
     }
 
     private void FixedUpdate()
     {
+        if (!init) return;
         curve.MoveKey(0, new Keyframe(0, Mathf.Lerp(curve[0].value, 0.3f, Time.deltaTime / 100)));
         Player1.UpdateCurve(curve);
         Player2.UpdateCurve(curve);
