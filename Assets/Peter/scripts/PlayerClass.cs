@@ -22,7 +22,6 @@ public class PlayerClass
     static private int numberOfPlayers = 0;
 
     private bool sprinting = false;
->>>>>>> Stashed changes
 
     private GameObject player;
     private int id;
