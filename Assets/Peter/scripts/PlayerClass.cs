@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Stuart;
@@ -31,24 +32,41 @@ public class PlayerClass
     private bool canMove;
     private Inventory invent;
     private bool debug;
+    private ResourceUsage resourceUsage;
 
-    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve, bool debug=false)
+    [Serializable]
+    public struct ResourceUsage
+    {
+        public float waterRate;
+        public float nutRate;
+
+        public ResourceUsage(float movementNut, float movementWater)
+        {
+            nutRate = movementNut;
+            waterRate = movementWater;
+        }
+    }
+
+
+    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve,
+        ResourceUsage resourceUsage, bool debug = false)
     {
         player = _player;
-
+        this.resourceUsage = resourceUsage;
         rb = player.GetComponent<Rigidbody>();
         mc = line.GetComponent<MeshCollider>();
         lr = line.GetComponent<LineRenderer>();
 
-        player.transform.position = new Vector3(player.transform.position.x, boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
+        player.transform.position = new Vector3(player.transform.position.x,
+            boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         LrSetup(curve);
         GameController.OnGameStart += () => { canMove = true; };
-        GameController.OnGameEnd += (int x) => { canMove = false; };
+        GameController.OnGameEnd += (int x, WinReason fd) => { canMove = false; };
         invent = player.GetComponent<Inventory>();
         this.debug = debug;
     }
 
-    public static void SetPerams(float _baseSpeed, float _pointDistance, LayerMask _lm)
+    public static void SetParams(float _baseSpeed, float _pointDistance, LayerMask _lm)
     {
         baseSpeed = _baseSpeed;
         pointDistance = _pointDistance;
@@ -72,7 +90,8 @@ public class PlayerClass
     {
         if (ver == 1)
         {
-            player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index), baseSpeed * 3 * Time.deltaTime);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index),
+                baseSpeed * 3 * Time.deltaTime);
             if (player.transform.position == lr.GetPosition(index))
             {
                 if (index > 0)
@@ -81,10 +100,12 @@ public class PlayerClass
                 }
             }
         }
+
         if (ver == -1)
         {
             if (index + 1 == lr.positionCount) return;
-            player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index + 1), baseSpeed * 3 * Time.deltaTime);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index + 1),
+                baseSpeed * 3 * Time.deltaTime);
             if (player.transform.position == lr.GetPosition(index + 1))
             {
                 if (index < lr.positionCount - 2)
@@ -97,9 +118,9 @@ public class PlayerClass
 
     public void Sprout(Transform controller)
     {
-        if (!sprouting && (invent.HasEnough(Resource.Sprout,1)||debug))
+        if (!sprouting && (invent.HasEnough(Resource.Sprout, 1) || debug))
         {
-            if(!debug)invent.Remove(Resource.Sprout, 1);
+            if (!debug) invent.Remove(Resource.Sprout, 1);
             sprouting = true;
             lr.positionCount += 3;
             lr.SetPosition(lr.positionCount - 3, player.transform.position);
@@ -115,11 +136,13 @@ public class PlayerClass
             {
                 index = lr.positionCount - 2;
             }
+
             Vector3 direction = lr.GetPosition(index) - lr.GetPosition(index + 1);
             if (direction.y < 0)
             {
                 direction = -direction;
             }
+
             Vector3 cross = Vector3.Cross(Vector3.Normalize(direction), new Vector3(0, 0, 1));
             Vector3 newpos = player.transform.position + (cross * 0.21f * hor);
             Vector3 oppos = player.transform.position + (cross * 0.21f * -hor);
@@ -153,6 +176,17 @@ public class PlayerClass
 
     private void MoveDraw()
     {
+        if (hor != 0 || ver != 0)
+        {
+            if (!HasResources())
+            {
+                hor = 0;
+                ver = 0;
+            }
+            else
+                RemoveResources();
+        }
+
         velocity = Vector3.Normalize(new Vector3(hor, ver, 0)) * baseSpeed;
 
         if (Vector3.Distance(position, player.transform.position) > pointDistance)
@@ -185,12 +219,13 @@ public class PlayerClass
 
     public void Input(int axis, float direction)
     {
-        if(axis == 0)
+        if (axis == 0)
         {
             if (direction != 0)
             {
                 lastHor = direction;
             }
+
             hor = direction;
         }
         else
@@ -215,6 +250,7 @@ public class PlayerClass
             rb.velocity = Vector3.zero;
             return;
         }
+
         if (!sprouting)
         {
             MoveDraw();
@@ -224,5 +260,23 @@ public class PlayerClass
         {
             TraverseLine();
         }
+    }
+
+    private bool HasResources()
+    {
+        var nutAmountReq = resourceUsage.nutRate * baseSpeed* Time.deltaTime;
+        var waterAmountReq = resourceUsage.waterRate*baseSpeed* Time.deltaTime;
+        if (!invent.HasEnough(Resource.Water, waterAmountReq) ||
+            !invent.HasEnough(Resource.Nutrients, nutAmountReq)) return false;
+        RemoveResources();
+        return true;
+    }
+
+    private void RemoveResources()
+    {
+        var nutAmountReq = resourceUsage.nutRate * baseSpeed*Time.deltaTime;
+        var waterAmountReq = resourceUsage.waterRate* baseSpeed*Time.deltaTime;
+        invent.Remove(Resource.Water, waterAmountReq);
+        invent.Remove(Resource.Nutrients, nutAmountReq);
     }
 }

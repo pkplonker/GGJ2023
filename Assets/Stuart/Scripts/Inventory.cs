@@ -7,9 +7,20 @@ namespace Stuart
 {
     public class Inventory : MonoBehaviour
     {
+        [SerializeField] private float startingNut = 10f;
+        [SerializeField] private float startingWater = 10f;
+        [SerializeField] private float startingsprout = 1f;
+
         private Dictionary<Resource, float> resources = new();
         public event Action OnInventChanged;
         [field: SerializeField] public int playerId { get; private set; }
+
+        private void Awake()
+        {
+            Add(Resource.Nutrients,startingNut);
+            Add(Resource.Water,startingWater);
+            Add(Resource.Sprout,startingsprout);
+        }
 
         private void Start() => OnInventChanged?.Invoke();
 
@@ -17,7 +28,6 @@ namespace Stuart
         public void Add(Resource type, float amount)
         {
             if (resources.ContainsKey(type))
-
             {
                 resources[type] += amount;
                 OnInventChanged?.Invoke();

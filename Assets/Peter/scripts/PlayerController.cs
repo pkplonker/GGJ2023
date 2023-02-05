@@ -13,8 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float pointDistance;
     [SerializeField] private LayerMask lm;
 
+
     [SerializeField] private AnimationCurve curve;
 
+    [Header("Movement costs")] [SerializeField]
+    private float movementNut;
+
+    [SerializeField] private float movementWater;
     private double startTime;
 
     private bool start = false;
@@ -35,19 +40,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        PlayerClass.SetPerams(baseSpeed, pointDistance, lm);
+        PlayerClass.SetParams(baseSpeed, pointDistance, lm);
         startTime = Time.time;
     }
 
-    private void playerStart(GameObject background,float val)
+    private void playerStart(GameObject background, float val)
     {
         init = true;
         curve = new AnimationCurve();
         curve.AddKey(0.0f, 0.1f);
         curve.AddKey(1.0f, 0.05f);
-
-        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve, isDebug);
-        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve, isDebug);
+        var res = new PlayerClass.ResourceUsage(movementNut, movementWater);
+        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve, res, isDebug);
+        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve, res, isDebug);
 
         start = true;
     }
@@ -89,6 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             Player1.Sprout(transform);
         }
+
         if (Input.GetKey("a"))
         {
             Player1.Input(0, -1);
@@ -101,6 +107,7 @@ public class PlayerController : MonoBehaviour
         {
             Player1.Input(0, 0);
         }
+
         if (Input.GetKey("w"))
         {
             Player1.Input(1, 1);
@@ -118,6 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             Player2.Sprout(transform);
         }
+
         if (Input.GetKey("left"))
         {
             Player2.Input(0, -1);
@@ -130,6 +138,7 @@ public class PlayerController : MonoBehaviour
         {
             Player2.Input(0, 0);
         }
+
         if (Input.GetKey("up"))
         {
             Player2.Input(1, 1);

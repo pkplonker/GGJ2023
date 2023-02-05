@@ -25,7 +25,21 @@ namespace Stuart
 		private void Start() => GameController.OnGameEnd += PlayerWin;
 		private void OnDisable() => GameController.OnGameEnd -= PlayerWin;
 
-		private void PlayerWin(int id) => ShowText($"Player {id} outgrew the pot!");
+		private void PlayerWin(int id, WinReason winReason)
+		{
+			switch (winReason)
+			{
+				case WinReason.ReachedEnd:
+					ShowText($"Player {id} outgrew the pot!");
+					break;
+				case WinReason.OtherPlayerTrapped:
+					var ans = id == 1 ? 2 : 1;
+					ShowText($"Player {ans} got stuck!");
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(winReason), winReason, "invalid win reason");
+			}
+		} 
 
 		public void ShowText(string message)
 		{

@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: 1
-  amount: 20
+  amount: 5
   destroyDelay: 0.5
-  particleSystem: {fileID: 3151000522097306149}
+  particle: {fileID: 3151000522097306149}
 --- !u!135 &1794503493
 SphereCollider:
   m_ObjectHideFlags: 0

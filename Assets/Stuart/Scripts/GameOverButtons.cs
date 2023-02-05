@@ -22,7 +22,7 @@ namespace Stuart
 			GameController.OnGameEnd += PlayerWin;
 		}
 
-		private void PlayerWin(int obj)
+		private void PlayerWin(int obj, WinReason x)
 		{
 			SetButtonsActive(true);
 		}

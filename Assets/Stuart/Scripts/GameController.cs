@@ -10,7 +10,7 @@ namespace Stuart
     public class GameController : MonoBehaviour
     {
         public static event Action OnGameStart;
-        public static event Action<int> OnGameEnd;
+        public static event Action<int,WinReason> OnGameEnd;
 
         private void Awake() => GameStatRecorder.StartGame();
 
@@ -45,12 +45,18 @@ namespace Stuart
             OnGameStart?.Invoke();
         }
 
-        private void PlayerWin(int winnerId)
+        
+        public static void PlayerWin(int winnerId,WinReason condition)
         {
             GameStatRecorder.StopGame(winnerId, FindObjectsOfType<Inventory>().ToList());
-            OnGameEnd?.Invoke(winnerId);
+            OnGameEnd?.Invoke(winnerId,condition);
         }
             
 
+    }
+    public enum WinReason
+    {
+        ReachedEnd,
+        OtherPlayerTrapped
     }
 }

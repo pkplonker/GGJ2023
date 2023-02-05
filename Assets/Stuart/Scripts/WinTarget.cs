@@ -8,7 +8,7 @@ namespace Stuart
 {
     public class WinTarget : MonoBehaviour
     {
-        public static event Action<int> OnPlayerWin;
+        public static event Action<int,WinReason> OnPlayerWin;
         private int winner = -1;
         private void OnTriggerEnter(Collider other)
         {
@@ -17,7 +17,7 @@ namespace Stuart
             if (invent == null) return;
             winner = invent.playerId;
             Debug.Log($"Winner is Player {invent.playerId}");
-            OnPlayerWin?.Invoke(invent.playerId);
+            OnPlayerWin?.Invoke(invent.playerId,WinReason.ReachedEnd);
         }
     }
 }

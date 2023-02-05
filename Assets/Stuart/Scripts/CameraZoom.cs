@@ -14,7 +14,7 @@ namespace Stuart
 		private void Start() => GameController.OnGameEnd += PlayerWin;
 		private void OnDisable() => GameController.OnGameEnd -= PlayerWin;
 
-		private void PlayerWin(int id)
+		private void PlayerWin(int id, WinReason x)
 		{
 			foreach (var cam in FindObjectsOfType<Camera>())
 			{
@@ -28,7 +28,7 @@ namespace Stuart
 		private IEnumerator CameraMove()
 		{
 			var timer = 0f;
-			var camStart = new Vector2(playerCamera.rect.width, playerCamera.rect.height);
+			//var camStart = new Vector2(playerCamera.rect.width, playerCamera.rect.height);
 			var sizeStart = playerCamera.orthographicSize;
 			var targetSize = FindObjectOfType<MapGenerator>().sizeScale * 5;
 			
