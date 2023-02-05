@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 3799422994735791888, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
       propertyPath: m_text
-      value: 'Controls: Arrows - NumEnter to re-root'
+      value: 'Controls: Arrows / G -Sprint / H Sprout'
       objectReference: {fileID: 0}
     - target: {fileID: 3799422994735791888, guid: 587172c323d4b644c82b13753ac59b4e,
         type: 3}
