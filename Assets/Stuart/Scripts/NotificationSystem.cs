@@ -11,9 +11,13 @@ namespace Stuart
 		[SerializeField] private float messageTime = 3f;
 		private TextMeshProUGUI text;
 		private Coroutine messageCor;
-
+		public static NotificationSystem instance { get; private set; }
 		private void Awake()
 		{
+			if (instance == null)
+				instance = this;
+			else if (instance != this)
+				Destroy(this);
 			text = GetComponent<TextMeshProUGUI>();
 			text.text = "";
 		}
