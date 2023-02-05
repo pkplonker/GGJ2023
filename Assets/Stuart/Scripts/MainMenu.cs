@@ -11,8 +11,8 @@ namespace Stuart
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private GameObject mainMenuPanel;
-        [SerializeField] private GameObject newGamePanel;
-        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private GameObject helpPanel;
+        [SerializeField] private GameObject creditsPanel;
         [SerializeField] private AudioClip clickClip;
 
         private void Awake()
@@ -24,8 +24,8 @@ namespace Stuart
         {
             if (playsound) PlaySound();
             mainMenuPanel.SetActive(true);
-            newGamePanel.SetActive(false);
-            settingsPanel.SetActive(false);
+            helpPanel.SetActive(false);
+            creditsPanel.SetActive(false);
         }
 
         public void Quit(bool playsound = true)
@@ -46,16 +46,16 @@ namespace Stuart
         {
             if (playsound) PlaySound();
             mainMenuPanel.SetActive(false);
-            mainMenuPanel.SetActive(false);
-            settingsPanel.SetActive(true);
+            helpPanel.SetActive(true);
+            creditsPanel.SetActive(false);
         }
 
-        public void OpenNewGame(bool playsound = true)
+        public void Credits(bool playsound = true)
         {
             if (playsound) PlaySound();
             mainMenuPanel.SetActive(false);
-            newGamePanel.SetActive(true);
-            settingsPanel.SetActive(false);
+            helpPanel.SetActive(false);
+            creditsPanel.SetActive(true); 
         }
 
         public void StartGame(bool playsound = true)
