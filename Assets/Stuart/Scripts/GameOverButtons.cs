@@ -19,7 +19,7 @@ namespace Stuart
 		{
 			buttons = GetComponentsInChildren<Button>().ToList();
 			SetButtonsActive(false);
-			WinTarget.OnPlayerWin += PlayerWin;
+			GameController.OnGameEnd += PlayerWin;
 		}
 
 		private void PlayerWin(int obj)
@@ -27,7 +27,7 @@ namespace Stuart
 			SetButtonsActive(true);
 		}
 
-		private void OnDisable() => WinTarget.OnPlayerWin -= PlayerWin;
+		private void OnDisable() => GameController.OnGameEnd -= PlayerWin;
 
 		private void SetButtonsActive(bool state)
 		{

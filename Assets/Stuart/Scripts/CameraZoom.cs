@@ -11,8 +11,8 @@ namespace Stuart
 		[SerializeField] private float zoomTime;
 		private void Awake() => playerCamera = Camera.main;
 
-		private void Start() => WinTarget.OnPlayerWin += PlayerWin;
-		private void OnDisable() => WinTarget.OnPlayerWin -= PlayerWin;
+		private void Start() => GameController.OnGameEnd += PlayerWin;
+		private void OnDisable() => GameController.OnGameEnd -= PlayerWin;
 
 		private void PlayerWin(int id)
 		{

@@ -22,8 +22,8 @@ namespace Stuart
 			text.text = "";
 		}
 
-		private void Start() => WinTarget.OnPlayerWin += PlayerWin;
-		private void OnDisable() => WinTarget.OnPlayerWin -= PlayerWin;
+		private void Start() => GameController.OnGameEnd += PlayerWin;
+		private void OnDisable() => GameController.OnGameEnd -= PlayerWin;
 
 		private void PlayerWin(int id) => ShowText($"Player {id} outgrew the pot!");
 
