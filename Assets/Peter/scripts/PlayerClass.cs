@@ -15,7 +15,6 @@ public class PlayerClass
     static private float sproutSpeed;
     static private Transform controller;
 
-    static private int numberOfPlayers;
 
     private GameObject player;
     private int id;
@@ -71,8 +70,7 @@ public class PlayerClass
         circleProgress = circleCanvas.transform.GetChild(1).GetComponent<Image>();
         circleCanvas.SetActive(false);
 
-        numberOfPlayers++;
-        id = numberOfPlayers;
+        id = _player.GetComponent<Inventory>().playerId;
 
         player.transform.position = new Vector3(player.transform.position.x,
             boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);

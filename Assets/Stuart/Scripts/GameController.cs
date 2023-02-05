@@ -12,6 +12,7 @@ namespace Stuart
         public static event Action OnGameStart;
         public static event Action<int,WinReason> OnGameEnd;
         private static bool hasWinner = false;
+        private static float timer;
         private void Awake() => GameStatRecorder.StartGame();
 
         private void OnEnable()
@@ -43,18 +44,31 @@ namespace Stuart
             }
             NotificationSystem.instance.ShowText("Go!");
             OnGameStart?.Invoke();
+            StartTimer();
+            hasWinner = false;
         }
 
-        
+        private void StartTimer()
+        {
+            timer = Time.timeSinceLevelLoad;
+        }
+
+
         public static void PlayerWin(int winnerId,WinReason condition)
         {
+            Debug.Log("Requesting Winner");
             if (hasWinner) return;
             hasWinner = true;
             GameStatRecorder.StopGame(winnerId, FindObjectsOfType<Inventory>().ToList());
             OnGameEnd?.Invoke(winnerId,condition);
+            EndTimer();
         }
-            
 
+        private static void EndTimer()
+        {
+            timer = Time.timeSinceLevelLoad - timer;
+            Debug.Log($"{timer}");
+        }
     }
     public enum WinReason
     {
