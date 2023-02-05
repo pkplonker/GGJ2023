@@ -14,7 +14,15 @@ public class PlayerClass
     static private float sproutTimeLim;
     static private float sproutSpeed;
     static private Transform controller;
+    static private float sprintMultiplier = 2;
+    static private float sprintMatMultiplier = 3;
 
+<<<<<<< Updated upstream
+=======
+    static private int numberOfPlayers = 0;
+
+    private bool sprinting = false;
+>>>>>>> Stashed changes
 
     private GameObject player;
     private int id;
@@ -23,7 +31,6 @@ public class PlayerClass
     private LineRenderer lr;
     private MeshCollider mc;
 
-    private Vector3 velocity;
     private Vector3 position;
 
     private float hor = 0;
@@ -152,6 +159,11 @@ public class PlayerClass
         }
     }
 
+    public void Sprint(bool _sprinting)
+    {
+        sprinting = _sprinting;
+    }
+
     public bool Sprout()
     {
         if (!sprouting && (invent.HasEnough(Resource.Sprout, 1) || debug))
@@ -229,8 +241,6 @@ public class PlayerClass
                 RemoveResources();
         }
 
-        velocity = Vector3.Normalize(new Vector3(hor, ver, 0)) * baseSpeed;
-
         if (Vector3.Distance(position, player.transform.position) > pointDistance)
         {
             lr.positionCount += 1;
@@ -238,7 +248,8 @@ public class PlayerClass
             timeLastGrown = Time.time;
         }
 
-        rb.velocity = velocity;
+        float sprint = sprinting ? sprintMultiplier : 1;
+        rb.velocity = Vector3.Normalize(new Vector3(hor, ver, 0)) * baseSpeed * sprint;
         lr.SetPosition(lr.positionCount - 1, player.transform.position);
     }
 
@@ -310,8 +321,9 @@ public class PlayerClass
 
     private bool HasResources()
     {
-        var nutAmountReq = resourceUsage.nutRate * baseSpeed* Time.deltaTime;
-        var waterAmountReq = resourceUsage.waterRate*baseSpeed* Time.deltaTime;
+        float sprintRate = sprinting ? sprintMatMultiplier : 1;
+        var nutAmountReq = resourceUsage.nutRate * baseSpeed * Time.deltaTime * sprintRate;
+        var waterAmountReq = resourceUsage.waterRate * baseSpeed * Time.deltaTime * sprintRate;
         if (!invent.HasEnough(Resource.Water, waterAmountReq) ||
             !invent.HasEnough(Resource.Nutrients, nutAmountReq)) return false;
         RemoveResources();
@@ -320,8 +332,9 @@ public class PlayerClass
 
     private void RemoveResources()
     {
-        var nutAmountReq = resourceUsage.nutRate * baseSpeed*Time.deltaTime;
-        var waterAmountReq = resourceUsage.waterRate* baseSpeed*Time.deltaTime;
+        float sprintRate = sprinting ? 3 : 1;
+        var nutAmountReq = resourceUsage.nutRate * baseSpeed*Time.deltaTime * sprintRate;
+        var waterAmountReq = resourceUsage.waterRate* baseSpeed*Time.deltaTime * sprintRate;
         invent.Remove(Resource.Water, waterAmountReq);
         invent.Remove(Resource.Nutrients, nutAmountReq);
     }

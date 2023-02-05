@@ -83,10 +83,11 @@ public class PlayerController : MonoBehaviour
 
     private void GetControls()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown("h"))
         {
             Player1.Sprout();
         }
+        Player1.Sprint(Input.GetKey("g"));
 
         if (Input.GetKey("a"))
         {
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             Player2.Sprout();
         }
+        Player2.Sprint(Input.GetKey(KeyCode.KeypadPeriod));
 
         if (Input.GetKey("left"))
         {
