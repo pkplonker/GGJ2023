@@ -144,19 +144,19 @@ public class PlayerClass
             }
 
             Vector3 cross = Vector3.Cross(Vector3.Normalize(direction), new Vector3(0, 0, 1));
-            Vector3 newpos = player.transform.position + (cross * 0.21f * hor);
-            Vector3 oppos = player.transform.position + (cross * 0.21f * -hor);
+            Vector3 newpos = player.transform.position + (cross * 0.21f * lastHor);
+            Vector3 oppos = player.transform.position + (cross * 0.21f * -lastHor);
 
             Collider[] hits = Physics.OverlapSphere(newpos, 0.1f, lm);
             Collider[] ophits = Physics.OverlapSphere(oppos, 0.1f, lm);
 
             if (hits.Length == 0)
             {
-                player.transform.position = newpos;
+                player.transform.position = player.transform.position + (cross * 0.1f * lastHor);
             }
             else if (ophits.Length == 0)
             {
-                player.transform.position = player.transform.position + (cross * 0.1f * -hor);
+                player.transform.position = player.transform.position + (cross * 0.1f * -lastHor);
             }
             else
             {
