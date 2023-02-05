@@ -140,7 +140,13 @@ public class PlayerClass
 
         if(circleProgress.fillAmount == 0)
         {
-            if (!Sprout())
+            if (invent.HasEnough(Resource.Sprout, 1) || debug)
+            {
+                if (!debug) invent.Remove(Resource.Sprout, 1);
+                sproutTime = Time.time;
+
+            }
+            else if (!Sprout())
             {
                 int winner = (id == 1) ? 2 : 1;
                 GameController.PlayerWin(winner, WinReason.OtherPlayerTrapped);
