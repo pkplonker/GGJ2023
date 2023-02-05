@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     PlayerClass Player1;
     PlayerClass Player2;
     private bool init;
+
     private void OnEnable()
     {
         MapGenerator.OnMapGenerated += playerStart;
@@ -45,8 +46,8 @@ public class PlayerController : MonoBehaviour
         curve.AddKey(0.0f, 0.1f);
         curve.AddKey(1.0f, 0.05f);
 
-        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve,isDebug);
-        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve,isDebug);
+        Player1 = new PlayerClass(player1, transform.GetChild(0), background, curve, isDebug);
+        Player2 = new PlayerClass(player2, transform.GetChild(1), background, curve, isDebug);
 
         start = true;
     }
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             Player1.UpdateLoop();
 
-            Player1.UpdateLoop();
+            Player2.UpdateLoop();
         }
     }
 
