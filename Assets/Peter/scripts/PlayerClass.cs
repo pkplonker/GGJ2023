@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Stuart;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerClass
@@ -9,9 +10,15 @@ public class PlayerClass
     static private float baseSpeed;
     static private float pointDistance;
     static private LayerMask lm;
-    static private float timeLim = 10;
+    static private float timeLim;
+    static private float sproutTimeLim;
+    static private float sproutSpeed;
+    static private Transform controller;
+
+    static private int numberOfPlayers;
 
     private GameObject player;
+    private int id;
 
     private Rigidbody rb;
     private LineRenderer lr;
@@ -28,6 +35,10 @@ public class PlayerClass
 
     private int index;
     private float timeLastGrown = -3;
+
+    private GameObject circleCanvas;
+    private Image circleProgress;
+    private float sproutTime;
 
     private bool canMove;
     private Inventory invent;
@@ -48,14 +59,20 @@ public class PlayerClass
     }
 
 
-    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve,
-        ResourceUsage resourceUsage, bool debug = false)
+    public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve, ResourceUsage resourceUsage, bool debug = false)
     {
         player = _player;
         this.resourceUsage = resourceUsage;
         rb = player.GetComponent<Rigidbody>();
         mc = line.GetComponent<MeshCollider>();
         lr = line.GetComponent<LineRenderer>();
+
+        circleCanvas = player.transform.GetChild(0).gameObject;
+        circleProgress = circleCanvas.transform.GetChild(1).GetComponent<Image>();
+        circleCanvas.SetActive(false);
+
+        numberOfPlayers++;
+        id = numberOfPlayers;
 
         player.transform.position = new Vector3(player.transform.position.x,
             boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
@@ -66,11 +83,15 @@ public class PlayerClass
         this.debug = debug;
     }
 
-    public static void SetParams(float _baseSpeed, float _pointDistance, LayerMask _lm)
+    public static void SetParams(float _baseSpeed, float _pointDistance, LayerMask _lm, float _timeLim, float _sproutTimeLim, float _sproutSpeed, Transform _controller)
     {
         baseSpeed = _baseSpeed;
         pointDistance = _pointDistance;
         lm = _lm;
+        timeLim = _timeLim;
+        sproutTimeLim = _sproutTimeLim;
+        sproutSpeed =  _sproutSpeed;
+        controller = _controller;
     }
 
     public void UpdateCurve(AnimationCurve curve)
@@ -88,10 +109,12 @@ public class PlayerClass
 
     private void TraverseLine()
     {
+        circleProgress.fillAmount = Mathf.Clamp(1 - (Time.time - sproutTime) / sproutTimeLim, 0, 1);
+
         if (ver == 1)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index),
-                baseSpeed * 3 * Time.deltaTime);
+                baseSpeed * sproutSpeed * Time.deltaTime);
             if (player.transform.position == lr.GetPosition(index))
             {
                 if (index > 0)
@@ -105,7 +128,7 @@ public class PlayerClass
         {
             if (index + 1 == lr.positionCount) return;
             player.transform.position = Vector3.MoveTowards(player.transform.position, lr.GetPosition(index + 1),
-                baseSpeed * 3 * Time.deltaTime);
+                baseSpeed * sproutSpeed * Time.deltaTime);
             if (player.transform.position == lr.GetPosition(index + 1))
             {
                 if (index < lr.positionCount - 2)
@@ -114,9 +137,18 @@ public class PlayerClass
                 }
             }
         }
+
+        if(circleProgress.fillAmount == 0)
+        {
+            if (!Sprout())
+            {
+                int winner = (id == 1) ? 2 : 1;
+                GameController.PlayerWin(winner, WinReason.OtherPlayerTrapped);
+            }
+        }
     }
 
-    public void Sprout(Transform controller)
+    public bool Sprout()
     {
         if (!sprouting && (invent.HasEnough(Resource.Sprout, 1) || debug))
         {
@@ -129,6 +161,9 @@ public class PlayerClass
             BakeLineMesh();
             rb.isKinematic = true;
             index = lr.positionCount - 1;
+
+            circleCanvas.SetActive(true);
+            sproutTime = Time.time;
         }
         else if (sprouting)
         {
@@ -160,7 +195,7 @@ public class PlayerClass
             }
             else
             {
-                return;
+                return false;
             }
 
             GameObject go = GameObject.Instantiate(lr.gameObject, controller);
@@ -171,7 +206,10 @@ public class PlayerClass
             sprouting = false;
             rb.isKinematic = false;
             timeLastGrown = Time.time;
+
+            circleCanvas.SetActive(false);
         }
+        return true;
     }
 
     private void MoveDraw()
@@ -234,13 +272,13 @@ public class PlayerClass
         }
     }
 
-    public bool CheckAlive()
+    public void CheckAlive()
     {
         if(Time.time - timeLastGrown > timeLim && !sprouting)
         {
-            return false;
+            int winner = (id == 1) ? 2 : 1;
+            GameController.PlayerWin(winner, WinReason.OtherPlayerTrapped);
         }
-        return true;
     }
 
     public void UpdateLoop()
@@ -248,6 +286,8 @@ public class PlayerClass
         if (!canMove)
         {
             rb.velocity = Vector3.zero;
+            circleCanvas.SetActive(false);
+            timeLastGrown = Time.time;
             return;
         }
 
@@ -260,6 +300,8 @@ public class PlayerClass
         {
             TraverseLine();
         }
+
+        CheckAlive();
     }
 
     private bool HasResources()

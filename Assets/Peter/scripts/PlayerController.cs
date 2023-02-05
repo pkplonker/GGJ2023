@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float baseSpeed;
     [SerializeField] private float pointDistance;
     [SerializeField] private LayerMask lm;
+    [SerializeField] private float timeLim;
+    [SerializeField] private float sproutTimeLim;
+    [SerializeField] private float sproutSpeed;
 
 
     [SerializeField] private AnimationCurve curve;
@@ -40,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        PlayerClass.SetParams(baseSpeed, pointDistance, lm);
+        PlayerClass.SetParams(baseSpeed, pointDistance, lm, timeLim, sproutTimeLim, sproutSpeed, transform);
         startTime = Time.time;
     }
 
@@ -75,16 +78,6 @@ public class PlayerController : MonoBehaviour
             Player1.UpdateLoop();
 
             Player2.UpdateLoop();
-
-            if (!Player1.CheckAlive())
-            {
-                GameController.PlayerWin(2, WinReason.OtherPlayerTrapped);
-            }
-
-            if (!Player2.CheckAlive())
-            {
-                GameController.PlayerWin(1, WinReason.OtherPlayerTrapped);
-            }
         }
     }
 
@@ -92,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Player1.Sprout(transform);
+            Player1.Sprout();
         }
 
         if (Input.GetKey("a"))
@@ -123,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            Player2.Sprout(transform);
+            Player2.Sprout();
         }
 
         if (Input.GetKey("left"))
