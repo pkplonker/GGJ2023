@@ -195,7 +195,11 @@ public class PlayerClass
 
     public void UpdateLoop()
     {
-        if(!canMove)return;
+        if (!canMove)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
         if (!sprouting)
         {
             MoveDraw();
