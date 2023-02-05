@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Stuart;
 
 public class CameraControler : MonoBehaviour
@@ -10,6 +11,8 @@ public class CameraControler : MonoBehaviour
 
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
+
+    [SerializeField] private Image border;
 
     private GameObject background;
 
@@ -49,11 +52,15 @@ public class CameraControler : MonoBehaviour
             target1 = player2.transform.position.y;
         }
 
-        if (Mathf.Abs(player1.transform.position.y - player2.transform.position.y) < camera1.orthographicSize*2)
+        if (Mathf.Abs(target2 - target1) < camera1.orthographicSize*2)
         {
             float mid = (target1 + target2) / 2;
             target1 = mid - camera1.orthographicSize;
             target2 = mid + camera2.orthographicSize;
+
+            float scale = Mathf.Clamp(Mathf.Abs(target2 - target1) - camera1.orthographicSize, 0, 1);
+
+            border.rectTransform.localScale = new Vector3(1, scale, 1);
         }
 
         camera1.transform.position = new Vector3(0, Mathf.Lerp(camera1.transform.position.y, target1, Time.deltaTime * 10), -10);
