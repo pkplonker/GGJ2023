@@ -59,7 +59,7 @@ public class CameraControler : MonoBehaviour
             target2 = mid + camera2.orthographicSize;
         }
 
-        float scale = Mathf.Clamp(Mathf.Abs(target2 - target1) - (camera1.orthographicSize * 2), 0, 2f) * 0.25f;
+        float scale = Mathf.Clamp(Mathf.Abs(target2 - target1) - (camera1.orthographicSize * 2), 0, 1f) * 0.5f;
         border.rectTransform.localScale = new Vector3(1, scale, 1);
 
         camera1.transform.position = new Vector3(0, Mathf.Lerp(camera1.transform.position.y, target1, Time.deltaTime * 10), -10);

@@ -236,7 +236,7 @@ public class PlayerClass
 
     public bool CheckAlive()
     {
-        if(Time.time - timeLastGrown > timeLim)
+        if(Time.time - timeLastGrown > timeLim && !sprouting)
         {
             return false;
         }
