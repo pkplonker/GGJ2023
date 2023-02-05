@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2644,7 +2644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aa20f4efb1d4245b5917212c179d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <sizeScale>k__BackingField: 1
+  <sizeScale>k__BackingField: 1.5
   startOrientation: {x: 90, y: -90, z: 90}
   dirtMaterial: {fileID: 2100000, guid: cd9af01cb1076ea4f962f0f6f71ae52c, type: 2}
   frameMaterial: {fileID: 2100000, guid: 103b49cbca0c1f44c872c827332ffc7e, type: 2}
