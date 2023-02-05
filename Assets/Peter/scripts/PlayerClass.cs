@@ -8,6 +8,7 @@ public class PlayerClass
     static private float baseSpeed;
     static private float pointDistance;
     static private LayerMask lm;
+    static private float timeLim = 10;
 
     private GameObject player;
 
@@ -25,9 +26,12 @@ public class PlayerClass
     private bool sprouting = false;
 
     private int index;
+    private float timeLastGrown = -3;
+
     private bool canMove;
     private Inventory invent;
     private bool debug;
+
     public PlayerClass(GameObject _player, Transform line, GameObject boundary, AnimationCurve curve, bool debug=false)
     {
         player = _player;
@@ -143,6 +147,7 @@ public class PlayerClass
             lr.SetPosition(index + 1, player.transform.position);
             sprouting = false;
             rb.isKinematic = false;
+            timeLastGrown = Time.time;
         }
     }
 
@@ -154,6 +159,7 @@ public class PlayerClass
         {
             lr.positionCount += 1;
             position = player.transform.position;
+            timeLastGrown = Time.time;
         }
 
         rb.velocity = velocity;
@@ -191,6 +197,15 @@ public class PlayerClass
         {
             ver = direction;
         }
+    }
+
+    public bool CheckAlive()
+    {
+        if(Time.time - timeLastGrown > timeLim)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void UpdateLoop()

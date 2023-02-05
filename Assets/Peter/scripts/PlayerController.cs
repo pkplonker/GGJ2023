@@ -70,6 +70,16 @@ public class PlayerController : MonoBehaviour
             Player1.UpdateLoop();
 
             Player2.UpdateLoop();
+
+            if (!Player1.CheckAlive())
+            {
+                GameController.PlayerWin(2, WinReason.OtherPlayerTrapped);
+            }
+
+            if (!Player2.CheckAlive()
+            {
+                GameController.PlayerWin(1, WinReason.OtherPlayerTrapped);
+            }
         }
     }
 
