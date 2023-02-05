@@ -17,10 +17,6 @@ public class PlayerClass
     static private float sprintMultiplier = 2;
     static private float sprintMatMultiplier = 3;
 
-<<<<<<< Updated upstream
-=======
-    static private int numberOfPlayers = 0;
-
     private bool sprinting = false;
 
     private GameObject player;
@@ -76,14 +72,15 @@ public class PlayerClass
         circleProgress = circleCanvas.transform.GetChild(1).GetComponent<Image>();
         circleCanvas.SetActive(false);
 
-        id = _player.GetComponent<Inventory>().playerId;
-
         player.transform.position = new Vector3(player.transform.position.x,
             boundary.GetComponent<MeshRenderer>().bounds.max.y - 0.5f, -0.1f);
         LrSetup(curve);
         GameController.OnGameStart += () => { canMove = true; };
         GameController.OnGameEnd += (int x, WinReason fd) => { canMove = false; };
         invent = player.GetComponent<Inventory>();
+
+        id = invent.playerId;
+
         this.debug = debug;
     }
 
